@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 // import { handleSignIn } from "../actions/shared";
+import { getUsers } from "../actions/users";
 import logo from "../logo.svg";
 import "../App.css";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(getUsers());
+  }
   render() {
+    console.log("APP PROPS", this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -26,4 +32,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({ users }) {
+  return {
+    users,
+  };
+}
+
+export default connect(mapStateToProps)(App);

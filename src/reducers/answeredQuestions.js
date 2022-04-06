@@ -1,8 +1,8 @@
-import { RECEIVE_ANSWERED_QUESTIONS } from "../actions/questions";
+import { GET_ANSWERED_QUESTIONS } from "../actions/questions";
 
 export default function answeredQuestions(state = {}, action) {
   switch (action.type) {
-    case RECEIVE_ANSWERED_QUESTIONS:
+    case GET_ANSWERED_QUESTIONS:
       return {
         ...state,
         ...action.questions,
