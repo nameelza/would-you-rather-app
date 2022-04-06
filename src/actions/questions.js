@@ -1,18 +1,16 @@
-import { _getQuestions } from "../utils/_DATA";
+export const RECEIVE_UNANSWERED_QUESTIONS = "RECEIVE_UNANSWERED_QUESTIONS";
+export const RECEIVE_ANSWERED_QUESTIONS = "RECEIVE_ANSWERED_QUESTIONS";
 
-export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
-
-function receiveQuestions(questions) {
+export function receiveUnansweredQuestions(questions) {
   return {
-    type: RECEIVE_QUESTIONS,
+    type: RECEIVE_UNANSWERED_QUESTIONS,
     questions,
   };
 }
 
-export function getQuestions() {
-  return (dispatch) => {
-    return _getQuestions().then((questions) => {
-      dispatch(receiveQuestions(questions));
-    });
+export function receiveAnsweredQuestions(questions) {
+  return {
+    type: RECEIVE_ANSWERED_QUESTIONS,
+    questions,
   };
 }
