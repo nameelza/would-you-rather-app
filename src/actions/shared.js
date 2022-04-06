@@ -1,12 +1,28 @@
 import { _getQuestions } from "../utils/_DATA";
-import { receiveQuestions } from "./unansweredQuestions";
+import {
+  receiveUnansweredQuestions,
+  receiveAnsweredQuestions,
+} from "./questions";
 import { setAuthedUser } from "./authedUser";
 
-export function handleSignIn(userId) {
+export function handleSignIn(user) {
   return (dispatch) => {
     return _getQuestions().then((questions) => {
-      dispatch(setAuthedUser(userId))
-      dispatch()
+      dispatch(setAuthedUser(user));
+      dispatch(
+        receiveUnansweredQuestions(
+          questions.filter((question) => {
+            return !user.answers.includes(question.id);
+          })
+        )
+      );
+      dispatch(
+        receiveAnsweredQuestions(
+          questions.filter((question) => {
+            return user.answers.includes(question.id);
+          })
+        )
+      );
     });
   };
 }
