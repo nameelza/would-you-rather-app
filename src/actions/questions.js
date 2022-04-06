@@ -1,18 +1,18 @@
-import { _getUsers } from "../utils/_DATA";
+import { _getQuestions } from "../utils/_DATA";
 
-export const RECEIVE_USERS = "RECEIVE_USERS";
+export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 
-export function getUsers() {
-  return (dispatch) => {
-    return _getUsers().then((users) => {
-      dispatch(receiveUsers(users));
-    });
+function receiveQuestions(questions) {
+  return {
+    type: RECEIVE_QUESTIONS,
+    questions,
   };
 }
 
-function receiveUsers(users) {
-  return {
-    type: RECEIVE_USERS,
-    users,
+export function getQuestions() {
+  return (dispatch) => {
+    return _getQuestions().then((questions) => {
+      dispatch(receiveQuestions(questions));
+    });
   };
 }

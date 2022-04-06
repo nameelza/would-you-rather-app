@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import users from "./users";
-import questions from "./questions";
+import answeredQuestions from "./answeredQuestions";
+import unansweredQuestions from "./unansweredQuestions";
 import authedUser from "./authedUser";
 
 export default combineReducers({
   users,
-  questions,
+  answeredQuestions,
+  unansweredQuestions,
   authedUser,
 });
