@@ -18,6 +18,7 @@ class SignIn extends Component {
   };
   render() {
     const { users, loading } = this.props;
+
     return (
       <Fragment>
         {loading ? (
@@ -28,7 +29,7 @@ class SignIn extends Component {
             <form onSubmit={this.handleSubmit}>
               <select onChange={this.handleChange}>
                 <option value="" disabled selected>
-                  Select User
+                  Select a user
                 </option>
                 {Object.keys(users).map((id) => (
                   <option key={id} value={users[id]}>
@@ -46,6 +47,7 @@ class SignIn extends Component {
 }
 
 function mapStateToProps({ users }) {
+  console.log("USERS", users);
   return {
     users,
     loading: Object.keys(users).length === 0,
