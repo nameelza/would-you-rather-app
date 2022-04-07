@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 class SignIn extends Component {
   render() {
-      const { users, loading } = this.props;
+    const { users, loading } = this.props;
     return (
       <Fragment>
         {loading ? (
@@ -15,9 +15,9 @@ class SignIn extends Component {
               <select>
                 <option value="">Select User</option>
                 {Object.keys(users).map((id) => (
-                    <option key={id} value={users[id]}>
-                        {users[id].name}
-                    </option>
+                  <option key={id} value={users[id]}>
+                    {users[id].name}
+                  </option>
                 ))}
               </select>
             </form>
