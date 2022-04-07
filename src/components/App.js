@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-// import { handleSignIn } from "../actions/shared";
 import { getUsers } from "../actions/users";
 // import logo from "../logo.svg";
 import "../App.css";
 import SignIn from "./SignIn";
+import CardsList from "./CardsList";
 
 class App extends Component {
   componentDidMount() {
@@ -14,8 +14,13 @@ class App extends Component {
     console.log("APP PROPS", this.props);
     return (
       <Fragment>
+      { this.props.singedIn ? (
+        <CardsList />
+      ) : (
         <SignIn />
+      )}
       </Fragment>
+    );
       // <div className="App">
       //   <header className="App-header">
       //     <img src={logo} className="App-logo" alt="logo" />
@@ -32,13 +37,13 @@ class App extends Component {
       //     </a>
       //   </header>
       // </div>
-    );
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
     users,
+    singedIn: authedUser !== null,
   };
 }
 
