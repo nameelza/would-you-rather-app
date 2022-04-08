@@ -6,6 +6,7 @@ import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
 import CardsList from "./CardsList";
+import Nav from "./Nav";
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <Fragment>
         <div className="container">
+          <Nav />
           { !this.props.singedIn ? (
             <SignIn />
           ) : (
