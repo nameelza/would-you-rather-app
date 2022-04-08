@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getUsers } from "../actions/users";
 // import logo from "../logo.svg";
 import "../App.css";
+import "../index.css";
 import SignIn from "./SignIn";
 import CardsList from "./CardsList";
 
@@ -14,11 +15,13 @@ class App extends Component {
     console.log("APP PROPS", this.props);
     return (
       <Fragment>
-      { this.props.singedIn ? (
-        <CardsList />
-      ) : (
-        <SignIn />
-      )}
+        <div className="container">
+          { !this.props.singedIn ? (
+            <SignIn />
+          ) : (
+            <CardsList />
+          )}
+        </div>
       </Fragment>
     );
       // <div className="App">
