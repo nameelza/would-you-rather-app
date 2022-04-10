@@ -1,41 +1,35 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Nav extends React.Component {
   render() {
     return (
       <nav className="nav">
-      console.log("NAV PROPS", this.props.singedIn);
         {this.props.singedIn ? (
           <ul>
             <li>
-              <NavLink to="/" exact >
-                Home
-              </NavLink>
+              <div>Home</div>
             </li>
             <li>
-              <NavLink to="/new" exact >
-                New Question
-              </NavLink>
+              <div>New Question</div>
             </li>
             <li>
-              <NavLink to="/leaderboard" exact >
-                Leader Board
-              </NavLink>
+              <div>Leader Board</div>
+            </li>
+            <li>
+              <div>Sign Out</div>
             </li>
           </ul>
         ) : (
           <ul>
             <li>
-              <NavLink to="/signin" exact >
-                Home
-              </NavLink>
+              <div>Home</div>
             </li>
             <li>
-              <NavLink to="/signin" exact >
-                New Tweet
-              </NavLink>
+              <div>New Question</div>
+            </li>
+            <li>
+              <div>Leader Board</div>
             </li>
           </ul>
         )}
