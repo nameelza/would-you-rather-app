@@ -8,16 +8,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .container {
   max-width: 600px;
   margin: 0 auto;
-  background-color: aliceblue;
+  padding: 10px;
   border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-top: 10px;
 }
 
 .nav ul {

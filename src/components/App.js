@@ -5,6 +5,7 @@ import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
 import CardsList from "./CardsList";
+import New from "./New";
 import Nav from "./Nav";
 
 class App extends Component {
@@ -12,12 +13,11 @@ class App extends Component {
     this.props.dispatch(getUsers());
   }
   render() {
-    console.log("APP PROPS", this.props);
     return (
       <Fragment>
         <Nav />
         <div className="container">
-          {this.props.singedIn ? <CardsList />: <SignIn />}
+          {this.props.singedIn ? <New />: <SignIn />}
         </div>
       </Fragment>
     );
