@@ -4,7 +4,7 @@ import { getUsers } from "../actions/users";
 import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
-import CardsList from "./CardsList";
+// import CardsList from "./CardsList";
 import New from "./New";
 import Nav from "./Nav";
 
@@ -17,7 +17,7 @@ class App extends Component {
       <Fragment>
         <Nav />
         <div className="container">
-          {this.props.singedIn ? <New />: <SignIn />}
+          {this.props.singedIn ? <New authedUser={this.props.authedUser}/>: <SignIn />}
         </div>
       </Fragment>
     );
