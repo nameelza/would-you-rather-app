@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { handleAddQuestion } from "../actions/questions";
 
 class New extends Component {
   state = {
@@ -10,15 +11,16 @@ class New extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
-    // const { dispatch, authedUser } = this.props;
-    console.log("submit", optionOne, optionTwo,);
-  }
+    const { dispatch } = this.props;
+    console.log("submit", optionOne, optionTwo);
+    dispatch(handleAddQuestion({ optionOne, optionTwo }));
+  };
   render() {
     const { optionOne, optionTwo } = this.state;
     return (
@@ -44,7 +46,9 @@ class New extends Component {
             placeholder="Option Two"
             required
           />
-          <button type="submit" disabled={optionOne === "" || optionTwo === ""}>Submit</button>
+          <button type="submit" disabled={optionOne === "" || optionTwo === ""}>
+            Submit
+          </button>
         </form>
       </div>
     );
