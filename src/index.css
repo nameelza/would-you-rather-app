@@ -20,14 +20,6 @@ body {
   text-align: center;
 }
 
-.card-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: auto;
-}
-
 ul {
   padding-left: 0;
 }
@@ -37,7 +29,6 @@ ul {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-
 }
 
 .question-headers {
@@ -59,7 +50,7 @@ button {
 .nav ul {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   text-decoration: none;
 }
 

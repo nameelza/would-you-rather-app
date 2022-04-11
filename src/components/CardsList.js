@@ -29,7 +29,7 @@ class CardsList extends Component {
           <h5 onClick={this.showAnswered}>Answered Questions</h5>
         </div>
         {this.state.showAnswered ? (
-          <ul className="card-list">
+          <ul>
             {Object.keys(answeredQuestions).map((questionId) => {
               const question = answeredQuestions[questionId];
               return (
