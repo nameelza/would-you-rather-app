@@ -13,13 +13,14 @@ class CardsList extends Component {
     });
   };
 
-  showUnanswered = (e) => {
+  showUnanswered = () => {
     this.setState({
       showAnswered: false,
     });
   };
 
   render() {
+    const { answeredQuestions, unansweredQuestions } = this.props;
     return (
       <div>
         <h3 className="center">List</h3>
@@ -28,9 +29,9 @@ class CardsList extends Component {
           <h5 onClick={this.showAnswered}>Answered Questions</h5>
         </div>
         {this.state.showAnswered ? (
-          <ul>
-            {Object.keys(this.props.answeredQuestions).map((questionId) => {
-              const question = this.props.answeredQuestions[questionId];
+          <ul className="card-list">
+            {Object.keys(answeredQuestions).map((questionId) => {
+              const question = answeredQuestions[questionId];
               return (
                 <li key={questionId}>
                   <Card question={question} />
@@ -40,8 +41,8 @@ class CardsList extends Component {
           </ul>
         ) : (
           <ul>
-            {Object.keys(this.props.unansweredQuestions).map((questionId) => {
-              const question = this.props.unansweredQuestions[questionId];
+            {Object.keys(unansweredQuestions).map((questionId) => {
+              const question = unansweredQuestions[questionId];
               return (
                 <li key={questionId}>
                   <Card question={question} />
@@ -56,12 +57,10 @@ class CardsList extends Component {
 }
 
 function mapStateToProps({
-  authedUser,
   answeredQuestions,
   unansweredQuestions,
 }) {
   return {
-    authedUser,
     answeredQuestions,
     unansweredQuestions,
   };

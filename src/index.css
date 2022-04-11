@@ -20,6 +20,26 @@ body {
   text-align: center;
 }
 
+.card-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+}
+
 .question-headers {
   display: flex;
   flex-direction: row;
@@ -43,7 +63,7 @@ button {
   text-decoration: none;
 }
 
-.nav li {
+li {
   text-decoration: none;
   list-style-type: none;
 }
@@ -51,3 +71,8 @@ button {
 .nav li:not(:first-child) {
   padding-left: 15px;
 }
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
