@@ -16,6 +16,17 @@ body {
   border-radius: 4px;
 }
 
+.center {
+  text-align: center;
+}
+
+.question-headers {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  justify-content: space-around;
+}
+
 form {
   display: flex;
   flex-direction: column;
