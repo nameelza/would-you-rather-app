@@ -13,7 +13,7 @@ class CardsList extends Component {
     });
   };
 
-  showUnanswered = () => {
+  showUnanswered = (e) => {
     this.setState({
       showAnswered: false,
     });
