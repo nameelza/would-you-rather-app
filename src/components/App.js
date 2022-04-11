@@ -17,7 +17,7 @@ class App extends Component {
       <Fragment>
         <Nav />
         <div className="container">
-          {this.props.singedIn ? <New authedUser={this.props.authedUser}/>: <SignIn />}
+          {this.props.singedIn ? <New />: <SignIn />}
         </div>
       </Fragment>
     );
