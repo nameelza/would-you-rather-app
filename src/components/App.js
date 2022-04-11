@@ -5,7 +5,7 @@ import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
 import CardsList from "./CardsList";
-import New from "./New";
+// import New from "./New";
 import Nav from "./Nav";
 
 class App extends Component {

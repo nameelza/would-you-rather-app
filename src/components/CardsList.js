@@ -18,13 +18,14 @@ class CardsList extends Component {
       showAnswered: false,
     });
   };
+
   render() {
     return (
       <div>
         <h3 className="center">List</h3>
         <div className="question-headers">
-          <h5 onClick={this.showAnswered}>Unanswered Questions</h5>
-          <h5 onClick={this.showUnanswered}>Answered Questions</h5>
+          <h5 onClick={this.showUnanswered}>Unanswered Questions</h5>
+          <h5 onClick={this.showAnswered}>Answered Questions</h5>
         </div>
         {this.state.showAnswered ? (
           <ul>
