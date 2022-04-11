@@ -4,43 +4,51 @@ import Card from "./Card";
 
 class CardsList extends Component {
   state = {
-    answered: false,
-  }
+    showAnswered: false,
+  };
 
-  handleChange = () => {
+  showAnswered = () => {
     this.setState({
-      answered: !this.state.answered,
+      showAnswered: true,
     });
-  }
+  };
+
+  showUnanswered = () => {
+    this.setState({
+      showAnswered: false,
+    });
+  };
   render() {
     return (
       <div>
         <h3 className="center">List</h3>
         <div className="question-headers">
-          <h5 onClick={this.handleChange}>Unanswered Questions</h5>
-          <h5 onClick={this.handleChange}>Answered Questions</h5>
+          <h5 onClick={this.showAnswered}>Unanswered Questions</h5>
+          <h5 onClick={this.showUnanswered}>Answered Questions</h5>
         </div>
-        <ul>
-          {Object.keys(this.props.unansweredQuestions).map((questionId) => {
-            const question = this.props.unansweredQuestions[questionId];
-            return (
-              <li key={questionId}>
-                <Card question={question} />
-              </li>
-            );
-          })}
-        </ul>
-        
-        <ul>
-          {Object.keys(this.props.answeredQuestions).map((questionId) => {
-            const question = this.props.answeredQuestions[questionId];
-            return (
-              <li key={questionId}>
-                <Card question={question} />
-              </li>
-            );
-          })}
-        </ul>
+        {this.state.showAnswered ? (
+          <ul>
+            {Object.keys(this.props.answeredQuestions).map((questionId) => {
+              const question = this.props.answeredQuestions[questionId];
+              return (
+                <li key={questionId}>
+                  <Card question={question} />
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <ul>
+            {Object.keys(this.props.unansweredQuestions).map((questionId) => {
+              const question = this.props.unansweredQuestions[questionId];
+              return (
+                <li key={questionId}>
+                  <Card question={question} />
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     );
   }
