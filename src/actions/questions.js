@@ -1,4 +1,5 @@
 import { _saveQuestion } from "../utils/_DATA";
+import { updateUser } from "./users";
 
 export const GET_UNANSWERED_QUESTIONS = "RECEIVE_UNANSWERED_QUESTIONS";
 export const GET_ANSWERED_QUESTIONS = "RECEIVE_ANSWERED_QUESTIONS";
@@ -30,7 +31,10 @@ export function handleAddQuestion({ optionOne, optionTwo }) {
     const { authedUser } = getState();
 
     return _saveQuestion({ optionOne, optionTwo, authedUser }).then(
-      (question) => dispatch(addQuestion(question))
+      (question) => {
+        dispatch(addQuestion(question));
+        dispatch(updateUser({question, authedUser}));
+      }
     );
   };
 }
