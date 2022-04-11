@@ -15,6 +15,9 @@ class New extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    const { optionOne, optionTwo } = this.state;
+    const { dispatch, authedUser } = this.props;
+    console.log("submit", optionOne, optionTwo, authedUser);
   }
   render() {
     const { optionOne, optionTwo } = this.state;

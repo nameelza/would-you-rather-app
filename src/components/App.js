@@ -27,6 +27,7 @@ class App extends Component {
 function mapStateToProps({ authedUser }) {
   return {
     singedIn: authedUser !== null,
+    authedUser,
   };
 }
 
