@@ -6,6 +6,16 @@ class New extends Component {
     optionOne: "",
     optionTwo: "",
   };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  }
   render() {
     const { optionOne, optionTwo } = this.state;
     return (
@@ -13,10 +23,12 @@ class New extends Component {
         <h1>Create New Question</h1>
         <p>Complete the question:</p>
         <h3>Would you rather...</h3>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={optionOne}
+            name="optionOne"
+            onChange={this.handleChange}
             placeholder="Option One"
             required
           />
@@ -24,10 +36,12 @@ class New extends Component {
           <input
             type="text"
             value={optionTwo}
+            name="optionTwo"
+            onChange={this.handleChange}
             placeholder="Option Two"
             required
           />
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={optionOne === "" || optionTwo === ""}>Submit</button>
         </form>
       </div>
     );
