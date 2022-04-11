@@ -4,8 +4,9 @@ import { getUsers } from "../actions/users";
 import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
-import CardsList from "./CardsList";
+// import CardsList from "./CardsList";
 // import New from "./New";
+import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
       <Fragment>
         <Nav />
         <div className="container">
-          {this.props.singedIn ? <CardsList />: <SignIn />}
+          {this.props.singedIn ? <LeaderBoard />: <SignIn />}
         </div>
       </Fragment>
     );

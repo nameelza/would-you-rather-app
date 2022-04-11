@@ -23,7 +23,7 @@ class CardsList extends Component {
     const { answeredQuestions, unansweredQuestions } = this.props;
     return (
       <div>
-        <h3 className="center">List</h3>
+        <h1 className="center">List</h1>
         <div className="question-headers">
           <h5 onClick={this.showUnanswered}>Unanswered Questions</h5>
           <h5 onClick={this.showAnswered}>Answered Questions</h5>
