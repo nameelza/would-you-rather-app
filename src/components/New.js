@@ -25,7 +25,7 @@ class New extends Component {
     const { optionOne, optionTwo } = this.state;
     return (
       <div>
-        <h1>Create New Question</h1>
+        <h1 className="center">Create New Question</h1>
         <p>Complete the question:</p>
         <h3>Would you rather...</h3>
         <form onSubmit={this.handleSubmit}>

@@ -29,7 +29,7 @@ class SignIn extends Component {
           <h3>Loading...</h3>
         ) : (
           <div>
-            <h1>Sign In</h1>
+            <h1 className="center">Sign In</h1>
             <form onSubmit={this.handleSubmit}>
               <select value={this.state.value} onChange={this.handleChange}>
                 <option value="" disabled>

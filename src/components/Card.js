@@ -7,8 +7,8 @@ class Card extends Component {
 
     return (
       <div className="card">
-        <p>{author}</p>
-        Would you rather {optionOne.text} or {optionTwo.text}
+        <p>{author} asks:</p>
+        <p>Would you rather {optionOne.text} or {optionTwo.text}</p>
       </div>
     );
   }

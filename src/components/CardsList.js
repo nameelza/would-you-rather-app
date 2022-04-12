@@ -23,10 +23,9 @@ class CardsList extends Component {
     const { answeredQuestions, unansweredQuestions } = this.props;
     return (
       <div>
-        <h1 className="center">List</h1>
         <div className="question-headers">
-          <h5 onClick={this.showUnanswered}>Unanswered Questions</h5>
-          <h5 onClick={this.showAnswered}>Answered Questions</h5>
+          <p onClick={this.showUnanswered}>Unanswered Questions</p>
+          <p onClick={this.showAnswered}>Answered Questions</p>
         </div>
         {this.state.showAnswered ? (
           <ul>

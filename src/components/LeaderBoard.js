@@ -4,7 +4,6 @@ import UserCard from "./UserCard";
 
 class LeaderBoard extends Component {
   render() {
-    console.log(this.props.users);
     return (
       <div>
         <h1 className="center">Leader Board</h1>
