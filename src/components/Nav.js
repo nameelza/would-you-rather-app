@@ -10,19 +10,27 @@ class Nav extends React.Component {
         {this.props.singedIn ? (
           <ul>
             <li>
-              <Link to={'/'} className="link">Home</Link>
+              <Link to={"/"} className="link">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to={'/newQuestion'} className="link">New Question</Link>
+              <Link to={"/newQuestion"} className="link">
+                New Question
+              </Link>
             </li>
             <li>
-              <Link to={'/leaderBoard'} className="link">Leader Board</Link>
+              <Link to={"/leaderBoard"} className="link">
+                Leader Board
+              </Link>
             </li>
             <li>
-              Hello, {this.props.userName}
+              <span>Hello, {this.props.userName}</span>
             </li>
             <li>
-              <div className="link">Sign Out</div>
+              <Link to={"/signIn"} className="link">
+                Sign Out
+              </Link>
             </li>
           </ul>
         ) : (
@@ -46,7 +54,7 @@ class Nav extends React.Component {
 function mapStateToProps({ authedUser, users }) {
   return {
     singedIn: authedUser !== null,
-    userName: users[authedUser].name,
+    userName: authedUser ? users[authedUser].name : "",
   };
 }
 
