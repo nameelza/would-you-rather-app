@@ -78,3 +78,12 @@ li {
   padding-left: 0;
 }
 
+.link {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #0070f3;
+}

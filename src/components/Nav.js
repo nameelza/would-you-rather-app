@@ -4,33 +4,37 @@ import { Link } from "react-router-dom";
 
 class Nav extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <nav className="nav">
         {this.props.singedIn ? (
           <ul>
             <li>
-              <Link to={'/'}>Home</Link>
+              <Link to={'/'} className="link">Home</Link>
             </li>
             <li>
-              <Link to={'/newQuestion'}>New Question</Link>
+              <Link to={'/newQuestion'} className="link">New Question</Link>
             </li>
             <li>
-              <Link to={'/leaderBoard'}>Leader Board</Link>
+              <Link to={'/leaderBoard'} className="link">Leader Board</Link>
             </li>
             <li>
-              <div>Sign Out</div>
+              Hello, {this.props.userName}
+            </li>
+            <li>
+              <div className="link">Sign Out</div>
             </li>
           </ul>
         ) : (
           <ul>
             <li>
-              <div>Home</div>
+              <div className="link">Home</div>
             </li>
             <li>
-              <div>New Question</div>
+              <div className="link">New Question</div>
             </li>
             <li>
-              <div>Leader Board</div>
+              <div className="link">Leader Board</div>
             </li>
           </ul>
         )}
@@ -39,9 +43,10 @@ class Nav extends React.Component {
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
     singedIn: authedUser !== null,
+    userName: users[authedUser].name,
   };
 }
 
