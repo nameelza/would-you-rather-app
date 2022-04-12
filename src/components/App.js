@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { getUsers } from "../actions/users";
+import { Routes, Route } from "react-router-dom";
 import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
-// import CardsList from "./CardsList";
-// import New from "./New";
+import CardsList from "./CardsList";
+import New from "./New";
 import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
 
@@ -18,7 +19,19 @@ class App extends Component {
       <Fragment>
         <Nav />
         <div className="container">
-          {this.props.singedIn ? <LeaderBoard />: <SignIn />}
+          {this.props.singedIn ? (
+            <Routes>
+              <Route exact path="/" element={<CardsList />} />
+              <Route path="/newQuestion" element={<New />} />
+              <Route path="/leaderBoard" element={<LeaderBoard />} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route exact path="/" element={<SignIn />} />
+              <Route path="/newQuestion" element={<SignIn />} />
+              <Route path="/leaderBoard" element={<SignIn />} />
+            </Routes>
+          )}
         </div>
       </Fragment>
     );

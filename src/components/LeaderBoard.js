@@ -11,7 +11,6 @@ class LeaderBoard extends Component {
         <ul>
           {Object.keys(this.props.users).map((id) => {
             const user = this.props.users[id];
-            console.log("user", user);
             return (
               <li key={id}>
                 <UserCard user={user} />
