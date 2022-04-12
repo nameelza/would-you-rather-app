@@ -8,8 +8,8 @@ function UserCard({ user }) {
     <div className="card">
       <img src={avatarURL} alt={`Avatar of ${name}`} />
       <p>{name}</p>
-      <p>{totalQuestions}</p>
-      <p>{totalAnswers}</p>
+      <p>{totalQuestions} questions</p>
+      <p>{totalAnswers} answers</p>
     </div>
   );
 }
