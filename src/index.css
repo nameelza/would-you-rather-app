@@ -105,3 +105,13 @@ li {
 .link:hover {
   color: #4CAF50;
 }
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
