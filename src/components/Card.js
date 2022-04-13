@@ -23,7 +23,16 @@ class Card extends Component {
               <p>{optionOne.text} or ...</p>
             </div>
             <div>
-              <Link to={`/card/${id}`}><button>View Poll</button></Link>
+              <Link
+                to={{
+                  pathname: `/card/${id}`,
+                  state: {
+                    isAnswered: this.props.isAnswered,
+                  },
+                }}
+              >
+                <button>View Poll</button>
+              </Link>
             </div>
           </div>
         </div>
