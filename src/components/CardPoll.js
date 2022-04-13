@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -8,6 +8,14 @@ function CardPoll() {
   const { author, optionOne, optionTwo } = question;
   const authedUser = useSelector((state) => state.authedUser);
   const votesCount = optionOne.votes.length + optionTwo.votes.length;
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(selectedOption);
+  };
+
   return (
     <Fragment>
       {isAnswered ? (
@@ -70,15 +78,16 @@ function CardPoll() {
             />
             <div>
               <h3>Would you rather</h3>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div>
                   <input
                     type="radio"
                     id="optionOne"
                     name="option"
                     value="optionOne"
+                    onChange={() => setSelectedOption("optionOne")}
                   />
-                  <label for="optionOne">{optionOne.text}</label>
+                  <label htmlFor="optionOne">{optionOne.text}</label>
                 </div>
                 <div>
                   <input
@@ -86,10 +95,10 @@ function CardPoll() {
                     id="optionTwo"
                     name="option"
                     value="optionTwo"
+                    onChange={() => setSelectedOption("optionTwo")}
                   />
-                  <label for="optionTwo">{optionTwo.text}</label>
+                  <label htmlFor="optionTwo">{optionTwo.text}</label>
                 </div>
-
                 <button type="submit">Submit</button>
               </form>
             </div>
