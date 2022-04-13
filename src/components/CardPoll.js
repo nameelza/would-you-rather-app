@@ -6,8 +6,8 @@ function CardPoll() {
   const location = useLocation();
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
-  const authedUSer = useSelector((state) => state.authedUser);
-  const user = useSelector((state) => state.users[authedUSer]);
+  const authedUser = useSelector((state) => state.authedUser);
+  const votesCount = optionOne.votes.length + optionTwo.votes.length;
   return (
     <Fragment>
       {isAnswered ? (
@@ -22,9 +22,38 @@ function CardPoll() {
               className="avatar"
             />
             <div>
-              <p>{author}</p>
-              <p>{optionOne.text}</p>
-              <p>{optionTwo.text}</p>
+              <h3>Results:</h3>
+              {optionOne.votes.includes(authedUser) ? (
+                <div className="poll-answers">
+                  <div id="selected">
+                    <p>Would you rather {optionOne.text}?</p>
+                    <p>
+                      {optionOne.votes.length} out of {votesCount} votes
+                    </p>
+                  </div>
+                  <div>
+                    <p>Would you rather {optionTwo.text}?</p>
+                    <p>
+                      {optionTwo.votes.length} out of {votesCount} votes
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="poll-answers">
+                  <div>
+                    <p>Would you rather {optionOne.text}?</p>
+                    <p>
+                      {optionOne.votes.length} out of {votesCount} votes
+                    </p>
+                  </div>
+                  <div id="selected">
+                    <p>Would you rather {optionTwo.text}?</p>
+                    <p>
+                      {optionTwo.votes.length} out of {votesCount} votes
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -40,9 +69,7 @@ function CardPoll() {
               className="avatar"
             />
             <div>
-              <div>
-                <h3>Would you rather</h3>
-              </div>
+              <h3>Would you rather</h3>
               <form>
                 <div>
                   <input

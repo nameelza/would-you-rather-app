@@ -127,3 +127,13 @@ button {
 button:hover {
   background-color: #419944;
 }
+
+.poll-answers div{
+  padding: 10px;
+}
+
+#selected {
+  background-color: #41994449;
+  border: 2px solid #419944;
+  border-radius: 4px;
+}
