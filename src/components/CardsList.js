@@ -31,7 +31,7 @@ class CardsList extends Component {
           <ul>
             {Object.keys(answeredQuestions).map((questionId) => (
               <li key={questionId}>
-                <Card question={answeredQuestions[questionId]} />
+                <Card question={answeredQuestions[questionId]} isAnswered={true}/>
               </li>
             ))}
           </ul>
@@ -39,7 +39,7 @@ class CardsList extends Component {
           <ul>
             {Object.keys(unansweredQuestions).map((questionId) => (
               <li key={questionId}>
-                <Card question={unansweredQuestions[questionId]} />
+                <Card question={unansweredQuestions[questionId]} isAnswered={false}/>
               </li>
             ))}
           </ul>
