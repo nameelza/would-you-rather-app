@@ -25,7 +25,7 @@ class Card extends Component {
             <div>
               <Link
                 to={`/card/${id}`}
-                state={{ isAnswered: this.props.isAnswered }}
+                state={{ isAnswered: this.props.isAnswered, question: this.props.question, avatar: this.props.avatar }}
               >
                 <button>View Poll</button>
               </Link>

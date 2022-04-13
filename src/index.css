@@ -11,8 +11,6 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 .center {
@@ -37,6 +35,8 @@ ul {
 
 .avatar {
   width: 150px;
+  height: 150px;
+  align-self: center;
   border-radius: 50%;
   margin-right: 10px;
 }
