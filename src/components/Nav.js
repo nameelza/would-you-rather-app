@@ -29,6 +29,13 @@ class Nav extends React.Component {
                 <span>Hello, {this.props.userName}</span>
               </li>
               <li>
+                <img
+                  src={this.props.avatar}
+                  alt="avatar"
+                  className="nav-avatar"
+                />
+              </li>
+              <li>
                 <Link to={"/signIn"} className="link">
                   Sign Out
                 </Link>
@@ -45,6 +52,7 @@ function mapStateToProps({ authedUser, users }) {
   return {
     singedIn: authedUser !== null,
     userName: authedUser ? users[authedUser].name : "",
+    avatar: authedUser ? users[authedUser].avatarURL : "",
   };
 }
 

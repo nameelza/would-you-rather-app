@@ -41,6 +41,10 @@ ul {
   margin-right: 10px;
 }
 
+.nav-avatar {
+  width: 25px;
+}
+
 .question-headers {
   display: flex;
   flex-direction: row;
@@ -79,6 +83,7 @@ button {
 .nav ul {
   display: flex;
   flex-direction: row;
+  align-items: center;
   list-style: none;
   padding: 5px 0;
 }
