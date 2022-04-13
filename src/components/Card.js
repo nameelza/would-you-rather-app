@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 class Card extends Component {
   render() {
     const { author, optionOne, id } = this.props.question;
-
+    console.log("card", this.props.isAnswered);
     return (
       <div className="card">
         <div className="card-header">
@@ -24,12 +24,8 @@ class Card extends Component {
             </div>
             <div>
               <Link
-                to={{
-                  pathname: `/card/${id}`,
-                  state: {
-                    isAnswered: this.props.isAnswered,
-                  },
-                }}
+                to={`/card/${id}`}
+                state={{ isAnswered: this.props.isAnswered }}
               >
                 <button>View Poll</button>
               </Link>
