@@ -29,25 +29,19 @@ class CardsList extends Component {
         </div>
         {this.state.showAnswered ? (
           <ul>
-            {Object.keys(answeredQuestions).map((questionId) => {
-              const question = answeredQuestions[questionId];
-              return (
-                <li key={questionId}>
-                  <Card question={question} />
-                </li>
-              );
-            })}
+            {Object.keys(answeredQuestions).map((questionId) => (
+              <li key={questionId}>
+                <Card question={answeredQuestions[questionId]} />
+              </li>
+            ))}
           </ul>
         ) : (
           <ul>
-            {Object.keys(unansweredQuestions).map((questionId) => {
-              const question = unansweredQuestions[questionId];
-              return (
-                <li key={questionId}>
-                  <Card question={question} />
-                </li>
-              );
-            })}
+            {Object.keys(unansweredQuestions).map((questionId) => (
+              <li key={questionId}>
+                <Card question={unansweredQuestions[questionId]} />
+              </li>
+            ))}
           </ul>
         )}
       </div>
@@ -55,10 +49,7 @@ class CardsList extends Component {
   }
 }
 
-function mapStateToProps({
-  answeredQuestions,
-  unansweredQuestions,
-}) {
+function mapStateToProps({ answeredQuestions, unansweredQuestions }) {
   return {
     answeredQuestions,
     unansweredQuestions,

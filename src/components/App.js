@@ -9,6 +9,7 @@ import CardsList from "./CardsList";
 import New from "./New";
 import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
+import CardPoll from "./CardPoll";
 
 class App extends Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
               <Route exact path="/" element={<CardsList />} />
               <Route path="/newQuestion" element={<New />} />
               <Route path="/leaderBoard" element={<LeaderBoard />} />
+              <Route path="/card/:id" element={<CardPoll />} />
             </Routes>
           ) : (
             <Routes>
