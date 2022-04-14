@@ -22,7 +22,7 @@ ul {
 }
 
 .card {
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -48,7 +48,6 @@ ul {
 .question-headers {
   display: flex;
   flex-direction: row;
-  margin-bottom: 10px;
   justify-content: space-around;
 }
 
@@ -64,8 +63,8 @@ ul {
 }
 
 #focused, #focused:hover {
-  color: #fff;
-  background-color: #419944;
+  color: #419944;
+  background-color: #f0f0f0;
   border-radius: 4px;
 }
 
