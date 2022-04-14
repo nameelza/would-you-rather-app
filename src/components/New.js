@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleAddQuestion } from "../actions/questions";
+import { Navigate } from "react-router-dom";
 
 class New extends Component {
   state = {
     optionOne: "",
     optionTwo: "",
+    redirectToHome: false,
   };
 
   handleChange = (e) => {
@@ -18,10 +20,15 @@ class New extends Component {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
     const { dispatch } = this.props;
-    console.log("submit", optionOne, optionTwo);
     dispatch(handleAddQuestion({ optionOne, optionTwo }));
+    this.setState({
+      redirectToHome: true,
+    });
   };
   render() {
+    if (this.state.redirectToHome) {
+      return <Navigate to="/" />;
+    }
     const { optionOne, optionTwo } = this.state;
     return (
       <div>

@@ -6,8 +6,8 @@ function CardPoll() {
   const location = useLocation();
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
-  const authedUser = useSelector((state) => state.authedUser);
   const votesCount = optionOne.votes.length + optionTwo.votes.length;
+  const authedUser = useSelector((state) => state.authedUser);
 
   const [selectedOption, setSelectedOption] = useState(null);
 
