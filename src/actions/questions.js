@@ -1,4 +1,4 @@
-import { _saveQuestion } from "../utils/_DATA";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
 import { updateUser } from "./users";
 import { showLoading, hideLoading } from "react-redux-loading";
 
@@ -30,14 +30,31 @@ function addQuestion(question) {
 export function handleAddQuestion({ optionOne, optionTwo }) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-    
+
     dispatch(showLoading());
-    return _saveQuestion({ optionOneText: optionOne, optionTwoText: optionTwo, author: authedUser }).then(
-      (question) => {
-        dispatch(addQuestion(question));
-        dispatch(updateUser({question, authedUser}));
-        dispatch(hideLoading());
-      }
-    );
+    return _saveQuestion({
+      optionOneText: optionOne,
+      optionTwoText: optionTwo,
+      author: authedUser,
+    }).then((question) => {
+      dispatch(addQuestion(question));
+      dispatch(updateUser({ question, authedUser }));
+      dispatch(hideLoading());
+    });
+  };
+}
+
+function saveAnswer(authedUser, qid, answer) {
+  return {
+    type: "SAVE_ANSWER",
+    authedUser,
+    qid,
+    answer,
+  };
+}
+
+export function handleSaveAnswer({ authedUser, qid, answer }) {
+  return (dispatch) => {
+    return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {});
   };
 }
