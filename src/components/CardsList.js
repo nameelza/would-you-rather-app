@@ -5,28 +5,34 @@ import Card from "./Card";
 class CardsList extends Component {
   state = {
     showAnswered: false,
+    answeredStyle: "",
+    unansweredStyle: "focused",
   };
 
   showAnswered = () => {
     this.setState({
       showAnswered: true,
+      answeredStyle: "focused",
+      unansweredStyle: "",
     });
   };
 
   showUnanswered = () => {
     this.setState({
       showAnswered: false,
+      answeredStyle: "",
+      unansweredStyle: "focused",
     });
+
   };
 
   render() {
     const { answeredQuestions, unansweredQuestions, unansweredIds, answeredIds } = this.props;
-    console.log("unasweredIds", unansweredIds);
     return (
       <div>
         <div className="question-headers">
-          <p onClick={this.showUnanswered}>Unanswered Questions</p>
-          <p onClick={this.showAnswered}>Answered Questions</p>
+          <p onClick={this.showUnanswered} id={this.state.unansweredStyle}>Unanswered Questions</p>
+          <p onClick={this.showAnswered} id={this.state.answeredStyle}>Answered Questions</p>
         </div>
         {this.state.showAnswered ? (
           <ul>

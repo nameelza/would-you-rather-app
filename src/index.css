@@ -55,11 +55,18 @@ ul {
 .question-headers p {
   font-size: 18px;
   font-weight: 600;
+  padding: 10px;
 }
 
 .question-headers p:hover {
   cursor: pointer;
   color: #419944;
+}
+
+#focused, #focused:hover {
+  color: #fff;
+  background-color: #419944;
+  border-radius: 4px;
 }
 
 form {
