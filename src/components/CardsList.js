@@ -20,7 +20,7 @@ class CardsList extends Component {
   };
 
   render() {
-    const { answeredQuestions, unansweredQuestions, unansweredIds } = this.props;
+    const { answeredQuestions, unansweredQuestions, unansweredIds, answeredIds } = this.props;
     console.log("unasweredIds", unansweredIds);
     return (
       <div>
@@ -30,7 +30,7 @@ class CardsList extends Component {
         </div>
         {this.state.showAnswered ? (
           <ul>
-            {Object.keys(answeredQuestions).map((questionId) => (
+            {answeredIds.map((questionId) => (
               <li key={questionId}>
                 <Card question={answeredQuestions[questionId]} isAnswered={true}/>
               </li>
@@ -56,6 +56,9 @@ function mapStateToProps({ answeredQuestions, unansweredQuestions }) {
     unansweredQuestions,
     unansweredIds: unansweredQuestions ? Object.keys(unansweredQuestions).sort(
       (a, b) => unansweredQuestions[b].timestamp - unansweredQuestions[a].timestamp
+    ) : [],
+    answeredIds: answeredQuestions ? Object.keys(answeredQuestions).sort(
+      (a, b) => answeredQuestions[b].timestamp - answeredQuestions[a].timestamp
     ) : [],
   };
 }
