@@ -1,10 +1,11 @@
 import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
-import { updateUser } from "./users";
+import { updateUser, saveUserAnswer } from "./users";
 import { showLoading, hideLoading } from "react-redux-loading";
 
 export const GET_UNANSWERED_QUESTIONS = "RECEIVE_UNANSWERED_QUESTIONS";
 export const GET_ANSWERED_QUESTIONS = "RECEIVE_ANSWERED_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
+export const SAVE_QUESTION_ANSWER = "SAVE_QUESTION_ANSWER";
 
 export function receiveUnansweredQuestions(questions) {
   return {
@@ -44,9 +45,9 @@ export function handleAddQuestion({ optionOne, optionTwo }) {
   };
 }
 
-function saveAnswer(authedUser, qid, answer) {
+function saveQuestionAnswer(authedUser, qid, answer) {
   return {
-    type: "SAVE_ANSWER",
+    type: "SAVE_QUESTION_ANSWER",
     authedUser,
     qid,
     answer,
@@ -55,6 +56,9 @@ function saveAnswer(authedUser, qid, answer) {
 
 export function handleSaveAnswer({ authedUser, qid, answer }) {
   return (dispatch) => {
-    return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {});
+    return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
+      dispatch(saveQuestionAnswer)
+      dispatch(saveUserAnswer)
+    });
   };
 }
