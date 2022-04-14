@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { getUsers } from "../actions/users";
 import { Routes, Route } from "react-router-dom";
+import LoadingBar from "react-redux-loading";
 import "../App.css";
 import "../index.css";
 import SignIn from "./SignIn";
@@ -18,6 +19,7 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <LoadingBar />
         <Nav />
         <div className="container">
           {this.props.singedIn ? (

@@ -30,10 +30,10 @@ function addQuestion(question) {
 export function handleAddQuestion({ optionOne, optionTwo }) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-
+    
+    dispatch(showLoading());
     return _saveQuestion({ optionOneText: optionOne, optionTwoText: optionTwo, author: authedUser }).then(
       (question) => {
-        dispatch(showLoading());
         dispatch(addQuestion(question));
         dispatch(updateUser({question, authedUser}));
         dispatch(hideLoading());
