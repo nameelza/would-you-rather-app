@@ -1,4 +1,4 @@
-import { ADD_QUESTION, GET_UNANSWERED_QUESTIONS } from "../actions/questions";
+import { ADD_QUESTION, GET_UNANSWERED_QUESTIONS, REMOVE_QUESTION} from "../actions/questions";
 
 export default function questions(state = {}, action) {
   switch (action.type) {
@@ -13,6 +13,11 @@ export default function questions(state = {}, action) {
         ...state,
         [question.id]: question,
       };
+    case REMOVE_QUESTION:
+      const { qid, ...oldState } = state;
+      return {
+        oldState
+      }
     default:
       return state;
   }
