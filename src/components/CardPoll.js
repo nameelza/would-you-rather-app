@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { handleSaveAnswer } from "../actions/questions";
 
 function CardPoll() {
   const location = useLocation();
@@ -8,12 +9,14 @@ function CardPoll() {
   const { author, optionOne, optionTwo } = question;
   const votesCount = optionOne.votes.length + optionTwo.votes.length;
   const authedUser = useSelector((state) => state.authedUser);
+  const dispatch = useSelector((state) => state.dispatch);
 
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(selectedOption);
+    console.log("handleSubmit", selectedOption);
+    dispatch(handleSaveAnswer(authedUser, question.id, question, selectedOption));
   };
 
   return (
