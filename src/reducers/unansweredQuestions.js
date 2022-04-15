@@ -16,7 +16,7 @@ export default function questions(state = {}, action) {
     case REMOVE_QUESTION:
       const { qid, ...oldState } = state;
       return {
-        oldState
+        ...oldState
       }
     default:
       return state;
