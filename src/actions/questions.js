@@ -5,7 +5,8 @@ import { showLoading, hideLoading } from "react-redux-loading";
 export const GET_UNANSWERED_QUESTIONS = "RECEIVE_UNANSWERED_QUESTIONS";
 export const GET_ANSWERED_QUESTIONS = "RECEIVE_ANSWERED_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
-export const SAVE_QUESTION_ANSWER = "SAVE_QUESTION_ANSWER";
+export const ADD_QUESTION_ANSWER = "ADD_QUESTION_ANSWER";
+export const REMOVE_QUESTION = "REMOVE_QUESTION";
 
 export function receiveUnansweredQuestions(questions) {
   return {
@@ -45,20 +46,29 @@ export function handleAddQuestion({ optionOne, optionTwo }) {
   };
 }
 
-function saveQuestionAnswer(authedUser, qid, answer) {
+function addQuestionAnswer(authedUser, qid, question, answer) {
   return {
-    type: "SAVE_QUESTION_ANSWER",
+    type: "ADD_QUESTION_ANSWER",
     authedUser,
     qid,
+    question,
     answer,
   };
 }
 
-export function handleSaveAnswer({ authedUser, qid, answer }) {
+function removeQuestion(qid) {
+  return {
+    type: "REMOVE_QUESTION",
+    qid,
+  };
+}
+
+export function handleSaveAnswer(authedUser, qid, question, answer) {
   return (dispatch) => {
     return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
-      dispatch(saveQuestionAnswer)
-      dispatch(saveUserAnswer)
+      dispatch(addQuestionAnswer(authedUser, qid, question, answer));
+      dispatch(removeQuestion(qid));
+      dispatch(saveUserAnswer(authedUser, qid, answer));
     });
   };
 }
