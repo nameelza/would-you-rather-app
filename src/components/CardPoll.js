@@ -9,22 +9,25 @@ function CardPoll() {
   const { author, optionOne, optionTwo } = question;
 
   const votesCount = optionOne.votes.length + optionTwo.votes.length;
-  
+
   const authedUser = useSelector((state) => state.authedUser);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [selectedOption, setSelectedOption] = useState(null);
+  const [answered, setIsAnswered] = useState(isAnswered);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit", selectedOption);
-    dispatch(handleSaveAnswer(authedUser, question.id, question, selectedOption));
+    setIsAnswered(true);
+    dispatch(
+      handleSaveAnswer(authedUser, question.id, question, selectedOption)
+    );
   };
 
   return (
     <Fragment>
-      {isAnswered ? (
+      {answered ? (
         <div className="card">
           <div className="card-header">
             <p>Asked by {author}</p>
