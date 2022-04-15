@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { handleSaveAnswer } from "../actions/questions";
 
@@ -7,9 +7,12 @@ function CardPoll() {
   const location = useLocation();
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
+
   const votesCount = optionOne.votes.length + optionTwo.votes.length;
+  
   const authedUser = useSelector((state) => state.authedUser);
-  const dispatch = useSelector((state) => state.dispatch);
+
+  const dispatch = useDispatch()
 
   const [selectedOption, setSelectedOption] = useState(null);
 
