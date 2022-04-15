@@ -14,7 +14,8 @@ export default function questions(state = {}, action) {
         [question.id]: question,
       };
     case REMOVE_QUESTION:
-      const { qid, ...oldState } = state;
+      const qid = action.qid;
+      const { [qid]: value, ...oldState } = state;
       return {
         ...oldState
       }
