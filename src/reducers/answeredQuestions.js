@@ -9,6 +9,17 @@ export default function answeredQuestions(state = {}, action) {
       };
     case ADD_QUESTION_ANSWER:
       return {
+        ...state,
+        [action.qid]: {
+          ...action.question,
+          [action.answer]: {
+            ...action.question[action.answer],
+            votes: [
+              ...action.question[action.answer].votes,
+              action.authedUser,
+            ]
+          }
+        }
       }
     default:
       return state;
