@@ -36,19 +36,31 @@ class CardsList extends Component {
         </div>
         {this.state.showAnswered ? (
           <ul>
-            {answeredIds.map((questionId) => (
+            {answeredIds.length !== 0 ? (
+              answeredIds.map((questionId) => (
               <li key={questionId}>
                 <Card question={answeredQuestions[questionId]} isAnswered={true}/>
               </li>
-            ))}
+              ))
+             ) : (
+              <div className="no-questions">
+                <p>You haven't voted on any question yet</p>
+              </div>
+            )}
           </ul>
         ) : (
           <ul>
-            {unansweredIds.map((questionId) => (
+            {unansweredIds.length !== 0 ? (
+              unansweredIds.map((questionId) => (
               <li key={questionId}>
                 <Card question={unansweredQuestions[questionId]} isAnswered={false}/>
               </li>
-            ))}
+              ))
+             ) : (
+              <div className="no-questions">
+                <p>No unanswered questions</p>
+              </div>
+            )}
           </ul>
         )}
       </div>

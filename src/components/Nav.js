@@ -1,10 +1,14 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { signOut } from "../actions/authedUser";
 
 class Nav extends React.Component {
+  handleSignOut = () => {
+    console.log("sign out");
+    this.props.dispatch(signOut);
+  }
   render() {
-    console.log(this.props);
     return (
       <nav className="nav">
         <ul>
@@ -36,9 +40,9 @@ class Nav extends React.Component {
                 />
               </li>
               <li>
-                <Link to={"/signIn"} className="link">
+                <button onClick={this.handleSignOut} className="link">
                   Sign Out
-                </Link>
+                </button>
               </li>
             </Fragment>
           )}
