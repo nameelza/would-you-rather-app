@@ -16,10 +16,12 @@ function CardPoll() {
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [answered, setIsAnswered] = useState(isAnswered);
+  const [answer, setAnswer] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsAnswered(true);
+    setAnswer(selectedOption);
     dispatch(
       handleSaveAnswer(authedUser, question.id, question, selectedOption)
     );
@@ -40,7 +42,7 @@ function CardPoll() {
             />
             <div>
               <h3>Results:</h3>
-              {optionOne.votes.includes(authedUser) ? (
+              {optionOne.votes.includes(authedUser) || answer === "optionOne" ? (
                 <div className="poll-answers">
                   <div id="selected">
                     <p>Would you rather {optionOne.text}?</p>
