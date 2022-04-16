@@ -53,20 +53,9 @@ class SignIn extends Component {
 }
 
 function mapStateToProps({ users }) {
-  const createUserOptions = (users) => {
-    const result = [];
-    for (let key in users) {
-      result.push({
-        value: key,
-        label: users[key].name,
-      });
-    }
-    return result;
-  };
   return {
     users,
     loading: Object.keys(users).length === 0,
-    userOptions: createUserOptions(users),
   };
 }
 
