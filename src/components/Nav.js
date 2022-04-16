@@ -40,9 +40,9 @@ class Nav extends React.Component {
                 />
               </li>
               <li>
-                <button onClick={this.handleSignOut} className="link">
+                <a href={"/signIn"} className="link">
                   Sign Out
-                </button>
+                </a>
               </li>
             </Fragment>
           )}
