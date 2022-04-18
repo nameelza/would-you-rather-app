@@ -3,7 +3,7 @@ import {
   receiveUnansweredQuestions,
   receiveAnsweredQuestions,
 } from "./questions";
-import { setAuthedUser } from "./authedUser";
+import { setAuthedUser, signOutUser } from "./authedUser";
 
 export function handleSignIn(user) {
   console.log("handleSignIn", user);
@@ -23,5 +23,12 @@ export function handleSignIn(user) {
       });
       dispatch(receiveAnsweredQuestions(Object.fromEntries(answered)));
     });
+  };
+}
+
+export function handleSignOut() {
+  console.log("handleSignOut");
+  return (dispatch) => {
+    dispatch(signOutUser());
   };
 }

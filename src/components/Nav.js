@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { signOut } from "../actions/authedUser";
+import { handleSignOut } from "../actions/shared";
 
 class Nav extends React.Component {
-  handleSignOut = () => {
+  handleSignOut = (e) => {
+    e.preventDefault();
     console.log("sign out");
-    this.props.dispatch(signOut);
+    this.props.dispatch(handleSignOut);
   }
   render() {
     return (
@@ -40,7 +41,7 @@ class Nav extends React.Component {
                 />
               </li>
               <li>
-                <a href={"/signIn"} className="link">
+                <a href={"/signIn"} className="link" onClick={this.handleSignOut}>
                   Sign Out
                 </a>
               </li>

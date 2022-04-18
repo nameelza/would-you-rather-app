@@ -17,6 +17,7 @@ class App extends Component {
     this.props.dispatch(getUsers());
   }
   render() {
+    console.log('app', this.props)
     return (
       <Fragment>
         <LoadingBar />
@@ -35,7 +36,7 @@ class App extends Component {
               <Route path="/newQuestion" element={<SignIn />} />
               <Route path="/leaderBoard" element={<SignIn />} />
               <Route path="/signIn" element={<SignIn />} />
-            </Routes>
+            </Routes> 
           )}
         </div>
       </Fragment>

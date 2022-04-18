@@ -1,5 +1,5 @@
 export const SET_AUTHED_USER = "SET_AUTHED_USER";
-export const SIGN_OUT = "SIGN_OUT";
+export const SIGN_OUT_USER = "SIGN_OUT_USER";
 
 export function setAuthedUser(userId) {
   return {
@@ -8,8 +8,8 @@ export function setAuthedUser(userId) {
   };
 }
 
-export function signOut() {
+export function signOutUser() {
   return {
-    type: SIGN_OUT,
+    type: SIGN_OUT_USER,
   };
 }
