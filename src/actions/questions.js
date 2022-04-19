@@ -67,12 +67,10 @@ function removeQuestion(qid) {
 
 export function handleSaveAnswer(authedUser, qid, question, answer) {
   return (dispatch) => {
-    dispatch(showLoading());
     return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
       dispatch(addQuestionAnswer(authedUser, qid, question, answer));
       dispatch(removeQuestion(qid));
       dispatch(saveUserAnswer(authedUser, qid, answer));
-      dispatch(hideLoading());
     });
   };
 }
@@ -93,5 +91,5 @@ export function clearOutQuestions() {
   return (dispatch) => {
     dispatch(clearOutUnanswered());
     dispatch(clearOutAnswered());
-  }
+  };
 }
