@@ -7,7 +7,6 @@ import {
 import { setAuthedUser, signOutUser } from "./authedUser";
 
 export function handleSignIn(user) {
-  console.log("handleSignIn", user);
   return (dispatch) => {
     return _getQuestions().then((questions) => {
       dispatch(setAuthedUser(user.id));
