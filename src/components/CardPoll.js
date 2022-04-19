@@ -20,11 +20,11 @@ function CardPoll() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsAnswered(true);
     setAnswer(selectedOption);
     dispatch(
       handleSaveAnswer(authedUser, question.id, question, selectedOption)
     );
+    setIsAnswered(true);
   };
 
   return (

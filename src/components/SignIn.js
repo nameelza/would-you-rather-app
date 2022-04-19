@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { handleSignIn } from "../actions/shared";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 class SignIn extends Component {
   state = {
@@ -10,7 +10,6 @@ class SignIn extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    <Navigate to="/" />;
     this.state.value === ""
       ? alert("Please select a user")
       : this.props.dispatch(handleSignIn(this.props.users[this.state.value]));
