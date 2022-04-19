@@ -2,6 +2,7 @@ import { _getQuestions } from "../utils/_DATA";
 import {
   receiveUnansweredQuestions,
   receiveAnsweredQuestions,
+  clearOutQuestions,
 } from "./questions";
 import { setAuthedUser, signOutUser } from "./authedUser";
 
@@ -30,5 +31,6 @@ export function handleSignOut() {
   console.log("handleSignOut");
   return (dispatch) => {
     dispatch(signOutUser());
+    dispatch(clearOutQuestions());
   };
 }
