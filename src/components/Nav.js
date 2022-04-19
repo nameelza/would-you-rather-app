@@ -1,57 +1,57 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 
-class Nav extends React.Component {
+const Nav = () => {
+  const navigate = useNavigate();
   handleSignOut = (e) => {
     e.preventDefault();
-    <Navigate to={"/signIn"} />;
     this.props.dispatch(handleSignOut());
-  }
-  render() {
-    return (
-      <nav className="nav">
-        <ul>
-          <li>
-            <Link to={"/"} className="link">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to={"/newQuestion"} className="link">
-              New Question
-            </Link>
-          </li>
-          <li>
-            <Link to={"/leaderBoard"} className="link">
-              Leader Board
-            </Link>
-          </li>
-          {this.props.singedIn && (
-            <Fragment>
-              <li>
-                <span>Hello, {this.props.userName}</span>
-              </li>
-              <li>
-                <img
-                  src={this.props.avatar}
-                  alt="avatar"
-                  className="nav-avatar"
-                />
-              </li>
-              <li>
-                <a href={"/signIn"} className="link" onClick={this.handleSignOut}>
-                  Sign Out
-                </a>
-              </li>
-            </Fragment>
-          )}
-        </ul>
-      </nav>
-    );
-  }
-}
+    console.log("signOutNavigate");
+    navigate("/signIn");
+  };
+  return (
+    <nav className="nav">
+      <ul>
+        <li>
+          <Link to={"/"} className="link">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to={"/newQuestion"} className="link">
+            New Question
+          </Link>
+        </li>
+        <li>
+          <Link to={"/leaderBoard"} className="link">
+            Leader Board
+          </Link>
+        </li>
+        {this.props.singedIn && (
+          <Fragment>
+            <li>
+              <span>Hello, {this.props.userName}</span>
+            </li>
+            <li>
+              <img
+                src={this.props.avatar}
+                alt="avatar"
+                className="nav-avatar"
+              />
+            </li>
+            <li>
+              <a href={"/signIn"} className="link" onClick={this.handleSignOut}>
+                Sign Out
+              </a>
+            </li>
+          </Fragment>
+        )}
+      </ul>
+    </nav>
+  );
+};
 
 function mapStateToProps({ authedUser, users }) {
   return {
