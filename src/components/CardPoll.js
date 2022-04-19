@@ -7,7 +7,7 @@ function CardPoll() {
   const location = useLocation();
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
- 
+
   const authedUser = useSelector((state) => state.authedUser);
 
   const dispatch = useDispatch();
@@ -24,11 +24,12 @@ function CardPoll() {
     e.preventDefault();
     dispatch(
       handleSaveAnswer(authedUser, question.id, question, selectedOption)
-    ).then(() => {
-      setAnswer(selectedOption);
-      setIsAnswered(true);
-      selectedOption === "optionOne" ? setOptionOneVotes(optionOneVotes + 1) : setOptionTwoVotes(optionTwoVotes + 1);
-    });
+    );
+    selectedOption === "optionOne"
+      ? setOptionOneVotes(optionOneVotes + 1)
+      : setOptionTwoVotes(optionTwoVotes + 1);
+    setAnswer(selectedOption);
+    setIsAnswered(true);
   };
 
   return (
