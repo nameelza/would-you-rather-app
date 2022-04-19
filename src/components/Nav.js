@@ -7,7 +7,8 @@ class Nav extends React.Component {
   handleSignOut = (e) => {
     e.preventDefault();
     console.log("sign out");
-    this.props.dispatch(handleSignOut);
+
+    this.props.dispatch(handleSignOut());
   }
   render() {
     return (
