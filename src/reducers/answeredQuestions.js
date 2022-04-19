@@ -1,4 +1,4 @@
-import { GET_ANSWERED_QUESTIONS, ADD_QUESTION_ANSWER } from "../actions/questions";
+import { GET_ANSWERED_QUESTIONS, ADD_QUESTION_ANSWER, CLEAR_OUT_ANSWERED } from "../actions/questions";
 
 export default function answeredQuestions(state = {}, action) {
   switch (action.type) {
@@ -21,6 +21,8 @@ export default function answeredQuestions(state = {}, action) {
           }
         }
       }
+    case CLEAR_OUT_ANSWERED:
+      return {};
     default:
       return state;
   }

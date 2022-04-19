@@ -5,7 +5,6 @@ export default function authedUser(state = null, action) {
     case SET_AUTHED_USER:
       return action.userId;
     case SIGN_OUT_USER:
-      console.log("sign out reducer");
       return null;
     default:
       return state;
