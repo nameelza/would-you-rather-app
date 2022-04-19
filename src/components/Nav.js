@@ -4,15 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 import { useDispatch } from "react-redux";
 
-function Nav ({ singedIn, userName, avatar }) {
+function Nav({ singedIn, userName, avatar }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const signOut = (e) => {
     e.preventDefault();
     dispatch(handleSignOut());
-    console.log("signOutNavigate");
     navigate("/signIn");
   };
+
   return (
     <nav className="nav">
       <ul>
@@ -37,11 +38,7 @@ function Nav ({ singedIn, userName, avatar }) {
               <span>Hello, {userName}</span>
             </li>
             <li>
-              <img
-                src={avatar}
-                alt="avatar"
-                className="nav-avatar"
-              />
+              <img src={avatar} alt="avatar" className="nav-avatar" />
             </li>
             <li>
               <a href={"/signIn"} className="link" onClick={signOut}>
@@ -53,7 +50,7 @@ function Nav ({ singedIn, userName, avatar }) {
       </ul>
     </nav>
   );
-};
+}
 
 function mapStateToProps({ authedUser, users }) {
   return {
