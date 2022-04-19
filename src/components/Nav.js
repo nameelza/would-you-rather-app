@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 
-const Nav = () => {
+const Nav = ({ singedIn, userName, avatar }) => {
   const navigate = useNavigate();
   handleSignOut = (e) => {
     e.preventDefault();
@@ -29,14 +29,14 @@ const Nav = () => {
             Leader Board
           </Link>
         </li>
-        {this.props.singedIn && (
+        {singedIn && (
           <Fragment>
             <li>
-              <span>Hello, {this.props.userName}</span>
+              <span>Hello, {userName}</span>
             </li>
             <li>
               <img
-                src={this.props.avatar}
+                src={avatar}
                 alt="avatar"
                 className="nav-avatar"
               />
