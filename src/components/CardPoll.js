@@ -7,9 +7,7 @@ function CardPoll() {
   const location = useLocation();
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
-
-  const votesCount = optionOne.votes.length + optionTwo.votes.length;
-
+ 
   const authedUser = useSelector((state) => state.authedUser);
 
   const dispatch = useDispatch();
@@ -17,14 +15,20 @@ function CardPoll() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [answered, setIsAnswered] = useState(isAnswered);
   const [answer, setAnswer] = useState(null);
+  const [optionOneVotes, setOptionOneVotes] = useState(optionOne.votes.length);
+  const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
+
+  const votesCount = optionOneVotes + optionTwoVotes;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAnswer(selectedOption);
     dispatch(
       handleSaveAnswer(authedUser, question.id, question, selectedOption)
-    );
-    setIsAnswered(true);
+    ).then(() => {
+      setAnswer(selectedOption);
+      setIsAnswered(true);
+      selectedOption === "optionOne" ? setOptionOneVotes(optionOneVotes + 1) : setOptionTwoVotes(optionTwoVotes + 1);
+    });
   };
 
   return (
@@ -42,18 +46,19 @@ function CardPoll() {
             />
             <div>
               <h3>Results:</h3>
-              {optionOne.votes.includes(authedUser) || answer === "optionOne" ? (
+              {optionOne.votes.includes(authedUser) ||
+              answer === "optionOne" ? (
                 <div className="poll-answers">
                   <div id="selected">
                     <p>Would you rather {optionOne.text}?</p>
                     <p>
-                      {optionOne.votes.length} out of {votesCount} votes
+                      {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
                   <div>
                     <p>Would you rather {optionTwo.text}?</p>
                     <p>
-                      {optionTwo.votes.length} out of {votesCount} votes
+                      {optionTwoVotes} out of {votesCount} votes
                     </p>
                   </div>
                 </div>
@@ -62,13 +67,13 @@ function CardPoll() {
                   <div>
                     <p>Would you rather {optionOne.text}?</p>
                     <p>
-                      {optionOne.votes.length} out of {votesCount} votes
+                      {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
                   <div id="selected">
                     <p>Would you rather {optionTwo.text}?</p>
                     <p>
-                      {optionTwo.votes.length} out of {votesCount} votes
+                      {optionTwoVotes} out of {votesCount} votes
                     </p>
                   </div>
                 </div>
