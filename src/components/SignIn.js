@@ -1,29 +1,27 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { handleSignIn } from "../actions/shared";
-// import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-class SignIn extends Component {
-  state = {
-    value: "",
-  };
+function SignIn({ users, loading, dispatch }) {
 
-  handleSubmit = (e) => {
+  const [value, setValue] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.state.value === ""
-      ? alert("Please select a user")
-      : this.props.dispatch(handleSignIn(this.props.users[this.state.value]));
+    if (value === "") {
+      alert("Please select a user");
+    } else {
+      dispatch(handleSignIn(users[value]));
+      navigate("/");
+    }
   };
 
-  handleChange = (e) => {
-    let value = e.target.value;
-    this.setState({
-      value,
-    });
+  const handleChange = (e) => {
+    setValue(e.target.value);
   };
-
-  render() {
-    const { users, loading } = this.props;
     return (
       <Fragment>
         {loading ? (
@@ -31,8 +29,8 @@ class SignIn extends Component {
         ) : (
           <div>
             <h1 className="center">Sign In</h1>
-            <form onSubmit={this.handleSubmit}>
-              <select value={this.state.value} onChange={this.handleChange}>
+            <form onSubmit={handleSubmit}>
+              <select value={value} onChange={handleChange}>
                 <option value="" disabled>
                   Select User
                 </option>
@@ -49,7 +47,6 @@ class SignIn extends Component {
       </Fragment>
     );
   }
-}
 
 function mapStateToProps({ users }) {
   return {
