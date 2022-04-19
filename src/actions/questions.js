@@ -7,6 +7,8 @@ export const GET_ANSWERED_QUESTIONS = "RECEIVE_ANSWERED_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
 export const ADD_QUESTION_ANSWER = "ADD_QUESTION_ANSWER";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
+export const CLEAR_OUT_ANSWERED = "CLEAR_OUT_ANSWERED";
+export const CLEAR_OUT_UNANSWERED = "CLEAR_OUT_UNANSWERED";
 
 export function receiveUnansweredQuestions(questions) {
   return {
@@ -71,4 +73,23 @@ export function handleSaveAnswer(authedUser, qid, question, answer) {
       dispatch(saveUserAnswer(authedUser, qid, answer));
     });
   };
+}
+
+function clearOutAnswered() {
+  return {
+    type: "CLEAR_OUT_ANSWERED",
+  };
+}
+
+function clearOutUnanswered() {
+  return {
+    type: "CLEAR_OUT_UNANSWERED",
+  };
+}
+
+export function clearOutQuestions() {
+  return (dispatch) => {
+    dispatch(clearOutUnanswered());
+    dispatch(clearOutAnswered());
+  }
 }
