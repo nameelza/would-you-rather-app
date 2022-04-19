@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://cdn-icons.flaticon.com/png/512/4140/premium/4140042.png?token=exp=1649724108~hmac=27e7f52139c95272341abc83148f3ee3',
+    avatarURL: 'https://i.pinimg.com/564x/56/68/af/5668afc79cbdfa186c5dd83a91c6a96c.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://cdn-icons.flaticon.com/png/512/4140/premium/4140044.png?token=exp=1649724108~hmac=5fd8d2f5ac9f72f1b4d37a59ddba5a0d',
+    avatarURL: 'https://i.pinimg.com/564x/37/06/38/370638b367e820d09a1f1cc1b2b95eb3.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
