@@ -2,12 +2,14 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
+import { useDispatch } from "react-redux";
 
-const Nav = ({ singedIn, userName, avatar }) => {
+function Nav ({ singedIn, userName, avatar }) {
   const navigate = useNavigate();
-  handleSignOut = (e) => {
+  const dispatch = useDispatch();
+  const signOut = (e) => {
     e.preventDefault();
-    this.props.dispatch(handleSignOut());
+    dispatch(handleSignOut());
     console.log("signOutNavigate");
     navigate("/signIn");
   };
@@ -42,7 +44,7 @@ const Nav = ({ singedIn, userName, avatar }) => {
               />
             </li>
             <li>
-              <a href={"/signIn"} className="link" onClick={this.handleSignOut}>
+              <a href={"/signIn"} className="link" onClick={signOut}>
                 Sign Out
               </a>
             </li>
