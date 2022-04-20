@@ -36,7 +36,7 @@ class New extends Component {
       <div className="border">
         <h1 className="center">Create New Question</h1>
         <p>Complete the question:</p>
-        <h3>Would you rather...</h3>
+        <h2>Would you rather...</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -47,7 +47,7 @@ class New extends Component {
             required
             className="input"
           />
-          <h4>OR</h4>
+          <h2 id="new-or"><span>OR</span></h2>
           <input
             type="text"
             value={optionTwo}
