@@ -24,6 +24,7 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  margin: 10px 0;
 }
 
 .border {
@@ -35,6 +36,15 @@ body {
 .border h1 {
   margin: 0 0 20px 0;
 }
+
+#signin-p {
+  margin: 10px 0;
+}
+
+#signin-subheading {
+  margin: 10px 0 0 0;
+}
+
 
 ul {
   padding-left: 0;
