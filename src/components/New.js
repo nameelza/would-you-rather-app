@@ -47,7 +47,9 @@ class New extends Component {
             required
             className="input"
           />
-          <h2 id="new-or"><span>OR</span></h2>
+          <h2 id="new-or">
+            <span>OR</span>
+          </h2>
           <input
             type="text"
             value={optionTwo}
