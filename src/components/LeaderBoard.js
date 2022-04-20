@@ -4,20 +4,21 @@ import UserCard from "./UserCard";
 
 class LeaderBoard extends Component {
   render() {
+    const { users } = this.props;
     return (
       <div>
         <h1 className="center">Leader Board</h1>
         <ul>
-          {Object.keys(this.props.users)
+          {Object.keys(users)
             .sort(
               (a, b) =>
-                this.props.users[b].questions.length +
-                Object.keys(this.props.users[b].answers).length -
-                (this.props.users[a].questions.length +
-                  Object.keys(this.props.users[a].answers).length)
+                users[b].questions.length +
+                Object.keys(users[b].answers).length -
+                (users[a].questions.length +
+                  Object.keys(users[a].answers).length)
             )
             .map((id) => {
-              const user = this.props.users[id];
+              const user = users[id];
               return (
                 <li key={id}>
                   <UserCard user={user} />
