@@ -15,7 +15,7 @@ function CardPoll() {
   const [answer, setAnswer] = useState(null);
   const [optionOneVotes, setOptionOneVotes] = useState(optionOne.votes.length);
   const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
-  
+
   const votesCount = optionOneVotes + optionTwoVotes;
 
   const dispatch = useDispatch();
@@ -47,7 +47,8 @@ function CardPoll() {
             />
             <div>
               <h3>Results:</h3>
-              {optionOne.votes.includes(authedUser) || answer === "optionOne" ? (
+              {optionOne.votes.includes(authedUser) ||
+              answer === "optionOne" ? (
                 <div className="poll-answers">
                   <div id="selected">
                     <p>Would you rather {optionOne.text}?</p>
@@ -94,26 +95,30 @@ function CardPoll() {
             />
             <div>
               <h2>Would you rather</h2>
-              <form onSubmit={handleSubmit} >
+              <form onSubmit={handleSubmit}>
                 <div className="vote-option">
-                  <input
-                    type="radio"
-                    id="optionOne"
-                    name="option"
-                    value="optionOne"
-                    onChange={() => setSelectedOption("optionOne")}
-                  />
-                  <label htmlFor="optionOne">{optionOne.text}</label>
+                  <label>
+                    <input
+                      type="radio"
+                      id="optionOne"
+                      name="option"
+                      value="optionOne"
+                      onChange={() => setSelectedOption("optionOne")}
+                    />
+                    {optionOne.text}
+                  </label>
                 </div>
                 <div className="vote-option">
-                  <input
-                    type="radio"
-                    id="optionTwo"
-                    name="option"
-                    value="optionTwo"
-                    onChange={() => setSelectedOption("optionTwo")}
-                  />
-                  <label htmlFor="optionTwo">{optionTwo.text}</label>
+                  <label>
+                    <input
+                      type="radio"
+                      id="optionTwo"
+                      name="option"
+                      value="optionTwo"
+                      onChange={() => setSelectedOption("optionTwo")}
+                    />
+                    {optionTwo.text}
+                  </label>
                 </div>
                 <button type="submit">Submit</button>
               </form>
