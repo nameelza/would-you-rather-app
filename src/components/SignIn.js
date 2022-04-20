@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function SignIn({ users, loading, dispatch }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (value === "") {
-      alert("Please select a user");
+      setError("Please select a user");
     } else {
       dispatch(handleSignIn(users[value]));
       navigate("/");
@@ -43,6 +44,7 @@ function SignIn({ users, loading, dispatch }) {
                 </option>
               ))}
             </select>
+            {error && <p className="error">{error}</p>}
             <button type="submit">Sign In</button>
           </form>
         </div>
