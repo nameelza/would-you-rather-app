@@ -37,16 +37,9 @@ body {
   margin: 0 0 20px 0;
 }
 
-#signin-p {
+.subheading {
   margin: 10px 0;
-}
-
-#signin-subheading {
-  margin: 10px 0 0 0;
-}
-
-#new-subheading {
-  margin: 10px 0 0 0;
+  text-align: center;
 }
 
 #new-or {

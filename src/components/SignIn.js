@@ -28,11 +28,8 @@ function SignIn({ users, loading, dispatch }) {
         <h3>Loading...</h3>
       ) : (
         <div className="border">
-          <h1 className="center">Sign In</h1>
-          <div className="center">
-            <h4 id="signin-subheading">Welcome to Would You Rather app</h4>
-            <p id="signin-p">Please sign in to continue</p>
-          </div>
+          <h1 className="center">Welcome to Would You Rather app</h1>
+          <p className="subheading">Please sign in to continue</p>
           <form onSubmit={handleSubmit}>
             <select value={value} onChange={handleChange} className="input">
               <option value="" disabled>
