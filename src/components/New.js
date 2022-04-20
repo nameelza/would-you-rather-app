@@ -31,7 +31,7 @@ class New extends Component {
     }
     const { optionOne, optionTwo } = this.state;
     return (
-      <div>
+      <div className="border">
         <h1 className="center">Create New Question</h1>
         <p>Complete the question:</p>
         <h3>Would you rather...</h3>
@@ -43,6 +43,7 @@ class New extends Component {
             onChange={this.handleChange}
             placeholder="Option One"
             required
+            className="input"
           />
           <h4>OR</h4>
           <input
@@ -52,6 +53,7 @@ class New extends Component {
             onChange={this.handleChange}
             placeholder="Option Two"
             required
+            className="input"
           />
           <button type="submit" disabled={optionOne === "" || optionTwo === ""}>
             Submit

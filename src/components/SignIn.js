@@ -27,10 +27,10 @@ function SignIn({ users, loading, dispatch }) {
         {loading ? (
           <h3>Loading...</h3>
         ) : (
-          <div>
+          <div className="border">
             <h1 className="center">Sign In</h1>
             <form onSubmit={handleSubmit}>
-              <select value={value} onChange={handleChange}>
+              <select value={value} onChange={handleChange} className="input">
                 <option value="" disabled>
                   Select User
                 </option>
