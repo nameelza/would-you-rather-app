@@ -36,7 +36,7 @@ class New extends Component {
       <div className="border">
         <h1 className="center">Create New Question</h1>
         <p>Complete the question:</p>
-        <h2>Would you rather...</h2>
+        <h2 id="new-subheading">Would you rather...</h2>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
