@@ -7,7 +7,7 @@ class Card extends Component {
     const { author, optionOne, id } = this.props.question;
     return (
       <div className="card">
-        <div className="card-header">
+        <div>
           <p>{author} asks:</p>
         </div>
         <div id="user-card">
@@ -18,13 +18,17 @@ class Card extends Component {
           />
           <div>
             <div>
-              <h3>Would you rather</h3>
-              <p>{optionOne.text} or ...</p>
+              <h3 id="subheading">Would you rather</h3>
+              <p id="subheading">{optionOne.text} or ...</p>
             </div>
             <div>
               <Link
                 to={`/card/${id}`}
-                state={{ isAnswered: this.props.isAnswered, question: this.props.question, avatar: this.props.avatar }}
+                state={{
+                  isAnswered: this.props.isAnswered,
+                  question: this.props.question,
+                  avatar: this.props.avatar,
+                }}
               >
                 <button>View Poll</button>
               </Link>
