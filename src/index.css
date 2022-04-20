@@ -74,6 +74,10 @@ ul {
   flex-direction: row;
 }
 
+#user-card div {
+  width: 100%;
+}
+
 .avatar {
   width: 150px;
   height: 150px;
@@ -156,6 +160,7 @@ li {
 }
 
 button {
+  width: 100%;
   background-color: #4CAF50;
   color: white;
   padding: 8px;

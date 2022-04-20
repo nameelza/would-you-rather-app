@@ -23,26 +23,37 @@ class CardsList extends Component {
       answeredStyle: "",
       unansweredStyle: "focused",
     });
-
   };
 
   render() {
-    const { answeredQuestions, unansweredQuestions, unansweredIds, answeredIds } = this.props;
+    const {
+      answeredQuestions,
+      unansweredQuestions,
+      unansweredIds,
+      answeredIds,
+    } = this.props;
     return (
       <div>
         <div className="question-headers">
-          <p onClick={this.showUnanswered} id={this.state.unansweredStyle}>Unanswered Questions</p>
-          <p onClick={this.showAnswered} id={this.state.answeredStyle}>Answered Questions</p>
+          <p onClick={this.showUnanswered} id={this.state.unansweredStyle}>
+            Unanswered Questions
+          </p>
+          <p onClick={this.showAnswered} id={this.state.answeredStyle}>
+            Answered Questions
+          </p>
         </div>
         {this.state.showAnswered ? (
           <ul>
             {answeredIds.length !== 0 ? (
               answeredIds.map((questionId) => (
-              <li key={questionId}>
-                <Card question={answeredQuestions[questionId]} isAnswered={true}/>
-              </li>
+                <li key={questionId}>
+                  <Card
+                    question={answeredQuestions[questionId]}
+                    isAnswered={true}
+                  />
+                </li>
               ))
-             ) : (
+            ) : (
               <div className="no-questions">
                 <p>You haven't voted on any question yet</p>
               </div>
@@ -52,11 +63,14 @@ class CardsList extends Component {
           <ul>
             {unansweredIds.length !== 0 ? (
               unansweredIds.map((questionId) => (
-              <li key={questionId}>
-                <Card question={unansweredQuestions[questionId]} isAnswered={false}/>
-              </li>
+                <li key={questionId}>
+                  <Card
+                    question={unansweredQuestions[questionId]}
+                    isAnswered={false}
+                  />
+                </li>
               ))
-             ) : (
+            ) : (
               <div className="no-questions">
                 <p>No unanswered questions</p>
               </div>
@@ -72,12 +86,18 @@ function mapStateToProps({ answeredQuestions, unansweredQuestions }) {
   return {
     answeredQuestions,
     unansweredQuestions,
-    unansweredIds: unansweredQuestions ? Object.keys(unansweredQuestions).sort(
-      (a, b) => unansweredQuestions[b].timestamp - unansweredQuestions[a].timestamp
-    ) : [],
-    answeredIds: answeredQuestions ? Object.keys(answeredQuestions).sort(
-      (a, b) => answeredQuestions[b].timestamp - answeredQuestions[a].timestamp
-    ) : [],
+    unansweredIds: unansweredQuestions
+      ? Object.keys(unansweredQuestions).sort(
+          (a, b) =>
+            unansweredQuestions[b].timestamp - unansweredQuestions[a].timestamp
+        )
+      : [],
+    answeredIds: answeredQuestions
+      ? Object.keys(answeredQuestions).sort(
+          (a, b) =>
+            answeredQuestions[b].timestamp - answeredQuestions[a].timestamp
+        )
+      : [],
   };
 }
 
