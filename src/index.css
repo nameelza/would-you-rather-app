@@ -106,10 +106,6 @@ form {
   flex-direction: column;
 }
 
-button {
-  margin-top: 10px;
-}
-
 .nav {
   display: flex;
   flex-direction: row;
@@ -165,6 +161,15 @@ button {
 
 button:hover {
   background-color: #419944;
+}
+
+button:disabled {
+  background-color: #95cc98;
+}
+
+button:disabled:hover {
+  background-color: #95cc98;
+  cursor: not-allowed;
 }
 
 .poll-answers div{

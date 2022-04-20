@@ -20,10 +20,12 @@ class New extends Component {
     e.preventDefault();
     const { optionOne, optionTwo } = this.state;
     const { dispatch } = this.props;
-    dispatch(handleAddQuestion({ optionOne, optionTwo }));
-    this.setState({
-      redirectToHome: true,
-    });
+    if (optionOne !== "" && optionTwo !== "") {
+      dispatch(handleAddQuestion({ optionOne, optionTwo }));
+      this.setState({
+        redirectToHome: true,
+      });
+    }
   };
   render() {
     if (this.state.redirectToHome) {
