@@ -18,8 +18,8 @@ class Card extends Component {
           />
           <div>
             <div>
-              <h3 id="subheading">Would you rather</h3>
-              <p id="subheading">{optionOne.text} or ...</p>
+              <p id="subheading">Would you rather</p>
+              <h3 id="subheading">{optionOne.text} or ...</h3>
             </div>
             <div>
               <Link
