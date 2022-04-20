@@ -74,6 +74,10 @@ ul {
   flex-direction: row;
 }
 
+#user-card h3, #user-card h2 {
+  margin: 10px 0;
+}
+
 #user-card div {
   width: 100%;
   box-sizing: border-box;
@@ -192,11 +196,35 @@ button:disabled:hover {
 }
 
 .poll-answers div {
-  padding: 10px;
+  padding: 10px 15px;
+}
+
+.poll-answers div:first-child {
+  margin-bottom: 5px;
+}
+
+.poll-answers p {
+  font-size: 18px;
+  padding: 5px 0;
+  margin: 5px 0;
 }
 
 #selected {
-  background-color: #41994449;
+  background-color: #88c48a49;
   border: 2px solid #419944;
   border-radius: 4px;
+}
+
+#selected h3 {
+  color: #339436;
+}
+
+
+.vote-option {
+  padding: 5px 0;
+  font-size: 18px;
+}
+
+.vote-option input {
+  margin-right: 10px;
 }

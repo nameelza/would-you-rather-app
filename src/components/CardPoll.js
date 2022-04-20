@@ -46,18 +46,18 @@ function CardPoll() {
               className="avatar"
             />
             <div>
-              <h3>Results:</h3>
+              <h2>Results:</h2>
               {optionOne.votes.includes(authedUser) ||
               answer === "optionOne" ? (
                 <div className="poll-answers">
                   <div id="selected">
-                    <p>Would you rather {optionOne.text}?</p>
+                    <h3>Would you rather {optionOne.text}?</h3>
                     <p>
                       {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
                   <div>
-                    <p>Would you rather {optionTwo.text}?</p>
+                    <h3>Would you rather {optionTwo.text}?</h3>
                     <p>
                       {optionTwoVotes} out of {votesCount} votes
                     </p>
@@ -66,13 +66,13 @@ function CardPoll() {
               ) : (
                 <div className="poll-answers">
                   <div>
-                    <p>Would you rather {optionOne.text}?</p>
+                    <h3>Would you rather {optionOne.text}?</h3>
                     <p>
                       {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
                   <div id="selected">
-                    <p>Would you rather {optionTwo.text}?</p>
+                    <h3>Would you rather {optionTwo.text}?</h3>
                     <p>
                       {optionTwoVotes} out of {votesCount} votes
                     </p>
