@@ -200,3 +200,9 @@ button:disabled:hover {
   border: 2px solid #419944;
   border-radius: 4px;
 }
+
+.vote-option {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

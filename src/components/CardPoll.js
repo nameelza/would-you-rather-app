@@ -93,9 +93,9 @@ function CardPoll() {
               className="avatar"
             />
             <div>
-              <h3>Would you rather</h3>
-              <form onSubmit={handleSubmit}>
-                <div>
+              <h2>Would you rather</h2>
+              <form onSubmit={handleSubmit} >
+                <div className="vote-option">
                   <input
                     type="radio"
                     id="optionOne"
@@ -105,7 +105,7 @@ function CardPoll() {
                   />
                   <label htmlFor="optionOne">{optionOne.text}</label>
                 </div>
-                <div>
+                <div className="vote-option">
                   <input
                     type="radio"
                     id="optionTwo"
