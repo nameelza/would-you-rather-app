@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 class Card extends Component {
   render() {
     const { author, optionOne, id } = this.props.question;
-    const option = optionOne.text.length > 35 ? optionOne.text.slice(0, 35) + "..." : optionOne.text;
+    const option =
+      optionOne.text.length > 35
+        ? optionOne.text.slice(0, 35) + "..."
+        : optionOne.text;
+
     return (
       <div className="card">
         <div>
