@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 class Card extends Component {
   render() {
     const { author, optionOne, id } = this.props.question;
+    const option = optionOne.text.length > 35 ? optionOne.text.slice(0, 35) + "..." : optionOne.text;
     return (
       <div className="card">
         <div>
@@ -17,22 +18,18 @@ class Card extends Component {
             className="avatar"
           />
           <div>
-            <div>
-              <p id="subheading">Would you rather</p>
-              <h3 id="subheading">{optionOne.text} or ...</h3>
-            </div>
-            <div>
-              <Link
-                to={`/card/${id}`}
-                state={{
-                  isAnswered: this.props.isAnswered,
-                  question: this.props.question,
-                  avatar: this.props.avatar,
-                }}
-              >
-                <button>View Poll</button>
-              </Link>
-            </div>
+            <p id="subheading">Would you rather</p>
+            <h3 id="subheading">{option} or ...</h3>
+            <Link
+              to={`/card/${id}`}
+              state={{
+                isAnswered: this.props.isAnswered,
+                question: this.props.question,
+                avatar: this.props.avatar,
+              }}
+            >
+              <button>View Poll</button>
+            </Link>
           </div>
         </div>
       </div>
