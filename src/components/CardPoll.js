@@ -50,30 +50,42 @@ function CardPoll() {
               {optionOne.votes.includes(authedUser) ||
               answer === "optionOne" ? (
                 <div className="poll-answers">
-                  <div id="selected">
+                  <div id="selected" className="poll-box">
                     <h3>Would you rather {optionOne.text}?</h3>
-                    <p>
+                    <div className="progress-bar">
+                      <span className="progress"></span>
+                    </div>
+                    <p className="center">
                       {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
-                  <div>
+                  <div className="poll-box">
                     <h3>Would you rather {optionTwo.text}?</h3>
-                    <p>
+                    <div className="progress-bar">
+                      <span className="progress"></span>
+                    </div>
+                    <p className="center">
                       {optionTwoVotes} out of {votesCount} votes
                     </p>
                   </div>
                 </div>
               ) : (
                 <div className="poll-answers">
-                  <div>
+                  <div className="poll-box">
                     <h3>Would you rather {optionOne.text}?</h3>
-                    <p>
+                    <div className="progress-bar">
+                      <span className="progress"></span>
+                    </div>
+                    <p className="center">
                       {optionOneVotes} out of {votesCount} votes
                     </p>
                   </div>
-                  <div id="selected">
+                  <div id="selected" className="poll-box">
                     <h3>Would you rather {optionTwo.text}?</h3>
-                    <p>
+                    <div className="progress-bar">
+                      <span className="progress"></span>
+                    </div>
+                    <p className="center">
                       {optionTwoVotes} out of {votesCount} votes
                     </p>
                   </div>

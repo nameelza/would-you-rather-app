@@ -195,7 +195,7 @@ button:disabled:hover {
   cursor: not-allowed;
 }
 
-.poll-answers div {
+.poll-box {
   padding: 10px 15px;
 }
 
@@ -227,4 +227,22 @@ button:disabled:hover {
 
 .vote-option input {
   margin-right: 10px;
+}
+
+.progress-bar {
+  position: relative;
+  background-color: rgb(195, 217, 236);
+  height: 30px;
+  padding: 0px;
+  border-radius: 4px;
+}
+
+.progress {
+  display: block;
+  height: 100%;
+  background-color: cornflowerblue;
+  position: relative;
+  width: 60%;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
