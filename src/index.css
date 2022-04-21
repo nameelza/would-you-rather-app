@@ -197,16 +197,18 @@ button:disabled:hover {
 
 .poll-box {
   padding: 10px 15px;
+  background-color: rgba(204, 204, 204, 0.219);
+  border: 2px solid #ccc;
+  border-radius: 4px;
 }
 
 .poll-answers div:first-child {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .poll-answers p {
-  font-size: 18px;
-  padding: 5px 0;
-  margin: 5px 0;
+  padding: 8px 0 0 0;
+  margin: 0;
 }
 
 #selected {
