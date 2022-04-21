@@ -197,8 +197,8 @@ button:disabled:hover {
 
 .poll-box {
   padding: 10px 15px;
-  background-color: rgba(204, 204, 204, 0.219);
-  border: 2px solid #ccc;
+  background-color: rgba(238, 238, 238, 0.219);
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
@@ -213,7 +213,7 @@ button:disabled:hover {
 
 #selected {
   background-color: #88c48a49;
-  border: 2px solid #419944;
+  border: 1px solid #419944;
   border-radius: 4px;
 }
 
