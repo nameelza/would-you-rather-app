@@ -14,11 +14,11 @@ function UserCard({ user }) {
         <div className="points-container">
           <div>
             <p>Created questions</p>
-            <p>{totalQuestions} </p>
+            <p id="points-total">{totalQuestions} </p>
           </div>
           <div>
             <p>Answered questions</p>
-            <p>{totalAnswers}</p>
+            <p id="points-total">{totalAnswers}</p>
           </div>
         </div>
       </div>

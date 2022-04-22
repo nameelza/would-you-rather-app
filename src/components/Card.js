@@ -21,7 +21,7 @@ class Card extends Component {
             alt={`Avatar of ${author.name}`}
             className="avatar"
           />
-          <div>
+          <div className="card-content">
             <p id="subheading">Would you rather</p>
             <h3 id="subheading">{option} or ...</h3>
             <Link
