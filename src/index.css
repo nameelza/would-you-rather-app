@@ -78,12 +78,23 @@ ul {
   margin: 10px 0;
 }
 
-#user-card div {
-  width: 100%;
-  box-sizing: border-box;
+.points-container div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.middle-container {
+  width: 30%;
+  margin-right: 20px;
+}
+
+.right-container {
   display: flex;
   flex-direction: column;
-  align-self: flex-end;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 
 .avatar {

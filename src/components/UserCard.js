@@ -9,13 +9,22 @@ function UserCard({ user }) {
   return (
     <div className="card" id="user-card">
       <img src={avatarURL} alt={`Avatar of ${name}`} className="avatar" />
-      <div>
-        <h3>{name}</h3>
-        <p> Created questions {totalQuestions}</p>
-        <p> Answered questions {totalAnswers}</p>
+      <div className="middle-container">
+        <h2>{name}</h2>
+        <div className="points-container">
+          <div>
+            <p>Created questions</p>
+            <p>{totalQuestions} </p>
+          </div>
+          <div>
+            <p>Answered questions</p>
+            <p>{totalAnswers}</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>Score {score}</p>
+      <div className="right-container">
+        <h3>Score</h3>
+        <p>{score}</p>
       </div>
     </div>
   );
