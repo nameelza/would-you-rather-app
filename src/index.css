@@ -312,16 +312,24 @@ form {
 .progress-bar {
   position: relative;
   background-color: rgba(156, 156, 156, 0.377);
-  height: 20px;
+  height: 25px;
   padding: 0px;
   border-radius: 4px;
+  display: flex;
+
 }
 
 .progress {
-  display: block;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 100%;
+  line-height: 100%;
   background-color: #419944;
-  position: relative;
+  position: absolute;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
+  color: #fff;
+  padding-right: 5px;
+  font-size: 14px;
 }

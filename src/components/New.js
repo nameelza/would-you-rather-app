@@ -46,6 +46,7 @@ class New extends Component {
             placeholder="Option One"
             required
             className="input"
+            maxLength={40}
           />
           <h2 id="new-or">
             <span>OR</span>
@@ -58,6 +59,7 @@ class New extends Component {
             placeholder="Option Two"
             required
             className="input"
+            maxLength={40}
           />
           <button type="submit" disabled={optionOne === "" || optionTwo === ""}>
             Submit

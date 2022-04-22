@@ -17,8 +17,9 @@ function CardPoll() {
   const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
 
   const votesCount = optionOneVotes + optionTwoVotes;
-  const optionOnePercentage = (optionOneVotes / votesCount) * 100;
-  const optionTwoPercentage = (optionTwoVotes / votesCount) * 100;
+  const optionOnePercentage = ((optionOneVotes / votesCount) * 100).toFixed(0);
+  const optionTwoPercentage = ((optionTwoVotes / votesCount) * 100).toFixed(0);
+  console.log(typeof optionOnePercentage, optionOnePercentage === "0");
 
   const dispatch = useDispatch();
 
@@ -55,10 +56,12 @@ function CardPoll() {
                   <div id="selected" className="poll-box">
                     <h3>Would you rather {optionOne.text}?</h3>
                     <div className="progress-bar">
-                      <span
-                        className="progress"
-                        style={{ width: `${optionOnePercentage}%` }}
-                      ></span>
+                      {optionOnePercentage !== "0" && (
+                        <span
+                          className="progress"
+                          style={{ width: `${optionOnePercentage}%` }}
+                        >{optionOnePercentage}%</span>
+                      )}
                     </div>
                     <p className="center">
                       {optionOneVotes} out of {votesCount} votes
@@ -70,7 +73,7 @@ function CardPoll() {
                       <span
                         className="progress"
                         style={{ width: `${optionTwoPercentage}%` }}
-                      ></span>
+                      >{optionTwoPercentage}%</span>
                     </div>
                     <p className="center">
                       {optionTwoVotes} out of {votesCount} votes
@@ -82,10 +85,12 @@ function CardPoll() {
                   <div className="poll-box">
                     <h3>Would you rather {optionOne.text}?</h3>
                     <div className="progress-bar">
-                      <span
-                        className="progress"
-                        style={{ width: `${optionOnePercentage}%` }}
-                      ></span>
+                    {optionOnePercentage !== "0" && (
+                        <span
+                          className="progress"
+                          style={{ width: `${optionOnePercentage}%` }}
+                        >{optionOnePercentage}%</span>
+                      )}
                     </div>
                     <p className="center">
                       {optionOneVotes} out of {votesCount} votes
@@ -97,7 +102,7 @@ function CardPoll() {
                       <span
                         className="progress"
                         style={{ width: `${optionTwoPercentage}%` }}
-                      ></span>
+                      >{optionTwoPercentage}%</span>
                     </div>
                     <p className="center">
                       {optionTwoVotes} out of {votesCount} votes
