@@ -1,4 +1,8 @@
-import { GET_ANSWERED_QUESTIONS, ADD_QUESTION_ANSWER, CLEAR_OUT_ANSWERED } from "../actions/questions";
+import {
+  GET_ANSWERED_QUESTIONS,
+  ADD_QUESTION_ANSWER,
+  CLEAR_OUT_ANSWERED,
+} from "../actions/questions";
 
 export default function answeredQuestions(state = {}, action) {
   switch (action.type) {
@@ -14,13 +18,10 @@ export default function answeredQuestions(state = {}, action) {
           ...action.question,
           [action.answer]: {
             ...action.question[action.answer],
-            votes: [
-              ...action.question[action.answer].votes,
-              action.authedUser,
-            ]
-          }
-        }
-      }
+            votes: [...action.question[action.answer].votes, action.authedUser],
+          },
+        },
+      };
     case CLEAR_OUT_ANSWERED:
       return {};
     default:

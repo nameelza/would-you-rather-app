@@ -1,4 +1,9 @@
-import { ADD_QUESTION, GET_UNANSWERED_QUESTIONS, REMOVE_QUESTION, CLEAR_OUT_UNANSWERED} from "../actions/questions";
+import {
+  ADD_QUESTION,
+  GET_UNANSWERED_QUESTIONS,
+  REMOVE_QUESTION,
+  CLEAR_OUT_UNANSWERED,
+} from "../actions/questions";
 
 export default function questions(state = {}, action) {
   switch (action.type) {
@@ -17,8 +22,8 @@ export default function questions(state = {}, action) {
       const qid = action.qid;
       const { [qid]: value, ...oldState } = state;
       return {
-        ...oldState
-      }
+        ...oldState,
+      };
     case CLEAR_OUT_UNANSWERED:
       return {};
     default:

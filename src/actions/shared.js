@@ -27,7 +27,6 @@ export function handleSignIn(user) {
 }
 
 export function handleSignOut() {
-  console.log("handleSignOut");
   return (dispatch) => {
     dispatch(signOutUser());
     dispatch(clearOutQuestions());

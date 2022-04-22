@@ -19,7 +19,7 @@ export function getUsers() {
   };
 }
 
-export function updateUser({question, authedUser}) {
+export function updateUser({ question, authedUser }) {
   return {
     type: UPDATE_USER,
     questionId: question.id,
@@ -28,12 +28,10 @@ export function updateUser({question, authedUser}) {
 }
 
 export function saveUserAnswer(authedUser, qid, answer) {
-  return{
+  return {
     type: SAVE_USER_ANSWER,
     authedUser,
     qid,
-    answer
-  }
+    answer,
+  };
 }
-
-
