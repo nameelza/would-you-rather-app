@@ -97,6 +97,11 @@ ul {
   width: 30%;
 }
 
+.score {
+  background-color: #419944;
+  border-radius: 50%;
+}
+
 .avatar {
   width: 150px;
   height: 150px;
