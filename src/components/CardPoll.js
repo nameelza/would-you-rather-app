@@ -40,8 +40,6 @@ function CardPoll() {
     setIsAnswered(true);
   };
 
-  console.log(optionOneAnswer, optionTwoAnswer);
-
   return (
     <Fragment>
       {answered ? (
@@ -57,78 +55,40 @@ function CardPoll() {
             />
             <div>
               <h2>Results:</h2>
-              {optionOne.votes.includes(authedUser) ||
-              optionOneAnswer === "selected" ? (
-                <div className="poll-answers">
-                  <div className="poll-box" id={optionOneAnswer}>
-                    <h3>Would you rather {optionOne.text}?</h3>
-                    <div className="progress-bar">
-                      {optionOnePercentage !== "0" && (
-                        <span
-                          className="progress"
-                          style={{ width: `${optionOnePercentage}%` }}
-                        >
-                          {optionOnePercentage}%
-                        </span>
-                      )}
-                    </div>
-                    <p className="center">
-                      {optionOneVotes} out of {votesCount} votes
-                    </p>
+              <div className="poll-answers">
+                <div className="poll-box" id={optionOneAnswer}>
+                  <h3>Would you rather {optionOne.text}?</h3>
+                  <div className="progress-bar">
+                    {optionOnePercentage !== "0" && (
+                      <span
+                        className="progress"
+                        style={{ width: `${optionOnePercentage}%` }}
+                      >
+                        {optionOnePercentage}%
+                      </span>
+                    )}
                   </div>
-                  <div className="poll-box" id="id={optionTwoAnswer}">
-                    <h3>Would you rather {optionTwo.text}?</h3>
-                    <div className="progress-bar">
-                      {optionTwoPercentage !== "0" && (
-                        <span
-                          className="progress"
-                          style={{ width: `${optionTwoPercentage}%` }}
-                        >
-                          {optionTwoPercentage}%
-                        </span>
-                      )}
-                    </div>
-                    <p className="center">
-                      {optionTwoVotes} out of {votesCount} votes
-                    </p>
-                  </div>
+                  <p className="center">
+                    {optionOneVotes} out of {votesCount} votes
+                  </p>
                 </div>
-              ) : (
-                <div className="poll-answers">
-                  <div className="poll-box">
-                    <h3>Would you rather {optionOne.text}?</h3>
-                    <div className="progress-bar">
-                      {optionOnePercentage !== "0" && (
-                        <span
-                          className="progress"
-                          style={{ width: `${optionOnePercentage}%` }}
-                        >
-                          {optionOnePercentage}%
-                        </span>
-                      )}
-                    </div>
-                    <p className="center">
-                      {optionOneVotes} out of {votesCount} votes
-                    </p>
+                <div className="poll-box" id={optionTwoAnswer}>
+                  <h3>Would you rather {optionTwo.text}?</h3>
+                  <div className="progress-bar">
+                    {optionTwoPercentage !== "0" && (
+                      <span
+                        className="progress"
+                        style={{ width: `${optionTwoPercentage}%` }}
+                      >
+                        {optionTwoPercentage}%
+                      </span>
+                    )}
                   </div>
-                  <div id={optionTwoAnswer} className="poll-box">
-                    <h3>Would you rather {optionTwo.text}?</h3>
-                    <div className="progress-bar">
-                      {optionTwoPercentage !== "0" && (
-                        <span
-                          className="progress"
-                          style={{ width: `${optionTwoPercentage}%` }}
-                        >
-                          {optionTwoPercentage}%
-                        </span>
-                      )}
-                    </div>
-                    <p className="center">
-                      {optionTwoVotes} out of {votesCount} votes
-                    </p>
-                  </div>
+                  <p className="center">
+                    {optionTwoVotes} out of {votesCount} votes
+                  </p>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
