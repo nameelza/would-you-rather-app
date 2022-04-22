@@ -19,7 +19,6 @@ function CardPoll() {
   const votesCount = optionOneVotes + optionTwoVotes;
   const optionOnePercentage = ((optionOneVotes / votesCount) * 100).toFixed(0);
   const optionTwoPercentage = ((optionTwoVotes / votesCount) * 100).toFixed(0);
-  console.log(typeof optionOnePercentage, optionOnePercentage === "0");
 
   const dispatch = useDispatch();
 
