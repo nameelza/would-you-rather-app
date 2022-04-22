@@ -146,7 +146,7 @@ function CardPoll() {
                     {optionTwo.text}
                   </label>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" id="vote-button">Submit</button>
               </form>
             </div>
           </div>
