@@ -22,10 +22,15 @@ function SignIn({ users, loading, dispatch }) {
   const handleChange = (e) => {
     setValue(e.target.value);
   };
+
   return (
     <Fragment>
       {loading ? (
-        <h3>Loading...</h3>
+        <div className="loading">
+          <h3>Loading...</h3>
+          <div className="loader"></div>
+        </div>
+        
       ) : (
         <div className="border">
           <h1 className="center">Welcome to Would You Rather app</h1>
