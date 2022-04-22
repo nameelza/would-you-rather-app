@@ -86,11 +86,12 @@ ul {
   font-size: 18px;
 }
 
-#user-card h3, #user-card h2 {
+#user-card h3,
+#user-card h2 {
   margin: 10px 0;
 }
 
-.points-container div{
+.points-container div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -207,8 +208,6 @@ li {
   color: #419944;
 }
 
-
-
 button {
   width: 100%;
   background-color: #4caf50;
@@ -261,7 +260,6 @@ button:disabled:hover {
 #selected h3 {
   color: #339436;
 }
-
 
 .vote-option {
   padding: 5px 0;
