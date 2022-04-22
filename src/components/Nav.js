@@ -1,17 +1,15 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 import { useDispatch } from "react-redux";
 
 function Nav({ singedIn, userName, avatar }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const signOut = (e) => {
     e.preventDefault();
     dispatch(handleSignOut());
-    navigate("/signIn");
   };
 
   return (
