@@ -27,31 +27,6 @@ body {
   margin: 10px 0;
 }
 
-.loading {
-  position: fixed;
-  left: calc(50% - 40px);
-}
-
-.loader {
-  display: flex;
-  justify-content: center;
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #419944;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .border {
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -66,18 +41,6 @@ body {
   margin: 10px 0;
 }
 
-#new-or {
-  margin: 10px 0;
-  text-align: center;
-  border-bottom: 1px solid #ccc;
-  line-height: 0.1em;
-}
-
-#new-or span {
-  background-color: #fff;
-  padding: 0 10px;
-}
-
 .error {
   color: red;
   margin: 0;
@@ -87,68 +50,31 @@ ul {
   padding-left: 0;
 }
 
-.card {
-  margin: 10px 0;
-  padding: 10px 20px;
-  border: 1px solid #ccc;
+button {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 8px;
+  border: none;
   border-radius: 4px;
-}
-
-#user-card {
-  display: flex;
-  flex-direction: row;
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-end;
-  width: 70%;
-  box-sizing: border-box;
-}
-
-.card-content p {
-  font-size: 18px;
-}
-
-#user-card h3,
-#user-card h2 {
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
   margin: 10px 0;
 }
 
-.points-container div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.middle-container {
-  width: 35%;
-  padding: 0 20px;
-}
-
-.right-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-}
-
-#points-total {
-  font-weight: 600;
-}
-
-.score {
+button:hover {
   background-color: #419944;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  line-height: 70px;
-  font-weight: 600;
-  font-size: 28px;
-  color: #fff;
-  margin: 14px 0;
+}
+
+button:disabled {
+  background-color: #95cc98;
+}
+
+button:disabled:hover {
+  background-color: #95cc98;
+  cursor: not-allowed;
 }
 
 .avatar {
@@ -159,38 +85,10 @@ ul {
   margin: 10px 30px 10px 0;
 }
 
+/* Navigation Component */
+
 .nav-avatar {
   width: 25px;
-}
-
-.question-headers {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.question-headers p {
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.question-headers p:hover {
-  cursor: pointer;
-  color: #419944;
-}
-
-#focused,
-#focused:hover {
-  color: #419944;
-  background-color: #f0f0f0;
-  border-radius: 4px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
 }
 
 .nav {
@@ -233,32 +131,148 @@ li {
   color: #419944;
 }
 
-button {
-  width: 100%;
-  background-color: #4caf50;
-  color: white;
-  padding: 8px;
-  border: none;
+/* Loader before sign in */
+
+.loading {
+  position: fixed;
+  left: calc(50% - 40px);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #419944;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* New Question Component */
+
+#new-or {
+  margin: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  line-height: 0.1em;
+}
+
+#new-or span {
+  background-color: #fff;
+  padding: 0 10px;
+}
+
+/* Cards Styling */
+
+.card {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
+}
+
+#user-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.card-content p {
+  font-size: 18px;
+}
+
+#user-card h3,
+#user-card h2 {
   margin: 10px 0;
 }
 
-button:hover {
+/* UserCard Component */
+
+.points-container div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.middle-container {
+  width: 35%;
+  padding: 0 20px;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+
+#points-total {
+  font-weight: 600;
+}
+
+.score {
   background-color: #419944;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  font-weight: 600;
+  font-size: 28px;
+  color: #fff;
+  margin: 14px 0;
 }
 
-button:disabled {
-  background-color: #95cc98;
+/* CardsList Component */
+
+.question-headers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-button:disabled:hover {
-  background-color: #95cc98;
-  cursor: not-allowed;
+.question-headers p {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px;
+  margin: 10px 0;
 }
+
+.question-headers p:hover {
+  cursor: pointer;
+  color: #419944;
+}
+
+#focused,
+#focused:hover {
+  color: #419944;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* CardPoll Component */
 
 .poll-box {
   padding: 10px 15px;
