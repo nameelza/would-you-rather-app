@@ -11,12 +11,13 @@ function CardPoll() {
   const authedUser = useSelector((state) => state.authedUser);
 
   const [selectedOption, setSelectedOption] = useState(null);
+
   const [answered, setIsAnswered] = useState(isAnswered);
   const [optionOneAnswer, setAnswerOne] = useState("");
   const [optionTwoAnswer, setAnswerTwo] = useState("");
+
   const [optionOneVotes, setOptionOneVotes] = useState(optionOne.votes.length);
   const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
-
   const votesCount = optionOneVotes + optionTwoVotes;
   const optionOnePercentage = ((optionOneVotes / votesCount) * 100).toFixed(0);
   const optionTwoPercentage = ((optionTwoVotes / votesCount) * 100).toFixed(0);
