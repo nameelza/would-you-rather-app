@@ -23,7 +23,7 @@ function UserCard({ user }) {
         </div>
       </div>
       <div className="right-container">
-        <h3>Score</h3>
+        <h2>Score</h2>
         <p className="score">{score}</p>
       </div>
     </div>
