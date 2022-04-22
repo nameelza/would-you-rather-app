@@ -12,8 +12,8 @@ function CardPoll() {
 
   const [selectedOption, setSelectedOption] = useState(null);
   const [answered, setIsAnswered] = useState(isAnswered);
-  const [optionOneAnswer, setAnswerOne] = useState('');
-  const [optionTwoAnswer, setAnswerTwo] = useState('');
+  const [optionOneAnswer, setAnswerOne] = useState("");
+  const [optionTwoAnswer, setAnswerTwo] = useState("");
   const [optionOneVotes, setOptionOneVotes] = useState(optionOne.votes.length);
   const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
 
@@ -31,11 +31,11 @@ function CardPoll() {
     if (selectedOption === "optionOne") {
       setOptionOneVotes(optionOneVotes + 1);
       setAnswerOne("selected");
-      setAnswerTwo("false");
+      setAnswerTwo("");
     } else {
       setOptionTwoVotes(optionTwoVotes + 1);
       setAnswerTwo("selected");
-      setAnswerOne("false");
+      setAnswerOne("");
     }
     setIsAnswered(true);
   };
@@ -58,9 +58,9 @@ function CardPoll() {
             <div>
               <h2>Results:</h2>
               {optionOne.votes.includes(authedUser) ||
-              optionOneAnswer === "selected"  ? (
+              optionOneAnswer === "selected" ? (
                 <div className="poll-answers">
-                  <div className="poll-box" id={optionOneAnswer} >
+                  <div className="poll-box" id={optionOneAnswer}>
                     <h3>Would you rather {optionOne.text}?</h3>
                     <div className="progress-bar">
                       {optionOnePercentage !== "0" && (
