@@ -12,16 +12,24 @@ export function handleSignIn(user) {
       dispatch(setAuthedUser(user.id));
 
       // filter out questions that the user hasn't answered
-      const unanswered = Object.entries(questions).filter(([key, value]) => {
-        return !(key in user.answers);
-      });
-      dispatch(receiveUnansweredQuestions(Object.fromEntries(unanswered)));
+      const unanswered = Object.keys(questions)
+        .filter((key) => !(key in user.answers))
+        .reduce((obj, key) => {
+          return Object.assign(obj, {
+            [key]: questions[key],
+          });
+        }, {});
+      dispatch(receiveUnansweredQuestions(unanswered));
 
       // filter out questions that the user has answered
-      const answered = Object.entries(questions).filter(([key, value]) => {
-        return key in user.answers;
-      });
-      dispatch(receiveAnsweredQuestions(Object.fromEntries(answered)));
+      const answered = Object.keys(questions)
+        .filter((key) => key in user.answers)
+        .reduce((obj, key) => {
+          return Object.assign(obj, {
+            [key]: questions[key],
+          });
+        }, {});
+      dispatch(receiveAnsweredQuestions(answered));
     });
   };
 }
