@@ -31,10 +31,6 @@ class App extends Component {
             </Routes>
           ) : (
             <Routes>
-              <Route exact path="/" element={<SignIn />} />
-              <Route path="/newQuestion" element={<SignIn />} />
-              <Route path="/leaderBoard" element={<SignIn />} />
-              <Route path="/card/:id" element={<SignIn />} />
               <Route path="/signIn" element={<SignIn />} />
             </Routes>
           )}
