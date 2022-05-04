@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 import { useDispatch } from "react-redux";
 
@@ -16,22 +16,37 @@ function Nav({ singedIn, userName, avatar }) {
     <nav className="nav">
       <ul>
         <li>
-          <Link to={"/"} className="link">
+          <NavLink
+            exact={true}
+            to="/"
+            className="link"
+            activeClassName="active-link"
+          >
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={"/newQuestion"} className="link">
+          <NavLink
+            exact={true}
+            to="/newQuestion"
+            className="link"
+            activeClassName="active-link"
+          >
             New Question
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={"/leaderBoard"} className="link">
+          <NavLink
+            exact={true}
+            to="/leaderBoard"
+            className="link"
+            activeClassName="active-link"
+          >
             Leader Board
-          </Link>
+          </NavLink>
         </li>
         {singedIn && (
-          <Fragment>
+          <>
             <li>
               <span>Hello, {userName}</span>
             </li>
@@ -39,11 +54,11 @@ function Nav({ singedIn, userName, avatar }) {
               <img src={avatar} alt="avatar" className="nav-avatar" />
             </li>
             <li>
-              <a href={"/signIn"} className="link" onClick={signOut}>
+              <Link to={"/signIn"} className="link" onClick={signOut}>
                 Sign Out
-              </a>
+              </Link>
             </li>
-          </Fragment>
+          </>
         )}
       </ul>
     </nav>

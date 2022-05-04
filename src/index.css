@@ -131,6 +131,10 @@ li {
   color: #419944;
 }
 
+.active-link {
+  background-color: #339436;
+}
+
 /* Loader before sign in */
 
 .loading {
