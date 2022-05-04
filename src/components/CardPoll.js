@@ -54,7 +54,7 @@ function CardPoll() {
               alt={`Avatar of ${author.name}`}
               className="avatar"
             />
-            <div>
+            <div className="cardpoll-results">
               <h2>Results:</h2>
               <div className="poll-answers">
                 <div className="poll-box" id={optionOneAnswer}>

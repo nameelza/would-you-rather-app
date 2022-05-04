@@ -22,13 +22,19 @@ class App extends Component {
         <LoadingBar />
         <Nav />
         <div className="container">
-          <Routes>
-            <Route exact path="/" element={<CardsList />} />
-            <Route path="/newQuestion" element={<New />} />
-            <Route path="/leaderBoard" element={<LeaderBoard />} />
-            <Route path="/card/:id" element={<CardPoll />} />
-            <Route path="/signIn" element={<SignIn />} />
-          </Routes>
+          {this.props.singedIn ? (
+            <Routes>
+              <Route exact path="/" element={<CardsList />} />
+              <Route path="/newQuestion" element={<New />} />
+              <Route path="/leaderBoard" element={<LeaderBoard />} />
+              <Route path="/card/:id" element={<CardPoll />} />
+              <Route path="*" element={<p>There's nothing here: 404!</p>} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="/signIn" element={<SignIn />} />
+            </Routes>
+          )}
         </div>
       </Fragment>
     );

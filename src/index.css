@@ -184,6 +184,11 @@ li {
 #user-card {
   display: flex;
   flex-direction: row;
+
+}
+
+.cardpoll-results {
+  width: 100%;
 }
 
 .card-content {
