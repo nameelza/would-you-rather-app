@@ -28,7 +28,7 @@ class App extends Component {
               <Route path="/newQuestion" element={<New />} />
               <Route path="/leaderBoard" element={<LeaderBoard />} />
               <Route path="/card/:id" element={<CardPoll />} />
-              <Route path="*" element={<p>There's nothing here: 404!</p>} />
+              <Route path="*" element={<p>Oops, wrong URL. There's nothing here!</p>} />
             </Routes>
           ) : (
             <Routes>
