@@ -11,6 +11,7 @@ import New from "./New";
 import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
 import CardPoll from "./CardPoll";
+import PrivateRoute from "./PrivateRoute";
 
 class App extends Component {
   componentDidMount() {
@@ -22,19 +23,17 @@ class App extends Component {
         <LoadingBar />
         <Nav />
         <div className="container">
-          {this.props.singedIn ? (
-            <Routes>
-              <Route exact path="/" element={<CardsList />} />
-              <Route path="/newQuestion" element={<New />} />
-              <Route path="/leaderBoard" element={<LeaderBoard />} />
-              <Route path="/card/:id" element={<CardPoll />} />
-              <Route path="*" element={<p>Oops, wrong URL. There's nothing here!</p>} />
-            </Routes>
-          ) : (
-            <Routes>
-              <Route path="/signIn" element={<SignIn />} />
-            </Routes>
-          )}
+          <Routes>
+            <Route path="/signIn" element={<SignIn />} />
+            <PrivateRoute exact path="/" element={<CardsList />} />
+            <PrivateRoute path="/newQuestion" element={<New />} />
+            <PrivateRoute path="/leaderBoard" element={<LeaderBoard />} />
+            <PrivateRoute path="/card/:id" element={<CardPoll />} />
+            <Route
+              path="*"
+              element={<p>Oops, wrong URL. There's nothing here!</p>}
+            />
+          </Routes>
         </div>
       </Fragment>
     );
