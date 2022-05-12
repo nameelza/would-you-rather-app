@@ -67,17 +67,17 @@ function Nav({ singedIn, userName, avatar }) {
         ) : (
           <>
             <li>
-              <NavLink exact to="/signIn" className="link">
+              <NavLink to="/signIn" className="link">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/signIn" className="link">
+              <NavLink to="/signIn" className="link">
                 New Question
               </NavLink>
             </li>
             <li>
-              <NavLink exact to="/signIn" className="link">
+              <NavLink to="/signIn" className="link">
                 Leader Board
               </NavLink>
             </li>
