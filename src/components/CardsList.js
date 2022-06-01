@@ -32,13 +32,15 @@ class CardsList extends Component {
       unansweredIds,
       answeredIds,
     } = this.props;
+
+    const { answeredStyle, unansweredStyle } = this.state;
     return (
       <div>
         <div className="question-headers">
-          <p onClick={this.showUnanswered} id={this.state.unansweredStyle}>
+          <p onClick={this.showUnanswered} id={unansweredStyle}>
             Unanswered Questions
           </p>
-          <p onClick={this.showAnswered} id={this.state.answeredStyle}>
+          <p onClick={this.showAnswered} id={answeredStyle}>
             Answered Questions
           </p>
         </div>
