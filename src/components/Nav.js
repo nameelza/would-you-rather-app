@@ -61,16 +61,10 @@ function Nav({ singedIn, userName, avatar }) {
               <img src={avatar} alt="avatar" className="nav-avatar" />
             </li>
           )}
-          {singedIn ? (
+          {singedIn && (
             <li>
               <Link to="/signIn" className="link" onClick={signOut}>
                 Sign Out
-              </Link>
-            </li>
-          ) : (
-            <li>
-              <Link to="/signIn" className="link">
-                Sign In
               </Link>
             </li>
           )}

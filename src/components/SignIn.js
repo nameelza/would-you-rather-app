@@ -15,7 +15,6 @@ function SignIn({ users, loading, dispatch }) {
       setError("Please select a user");
     } else {
       dispatch(handleSignIn(users[value]));
-      console.log("navigated to /");
       navigate("/");
     }
   };
