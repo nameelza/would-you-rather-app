@@ -1,3 +1,4 @@
+import { showLoading, hideLoading } from "react-redux-loading";
 import { _getQuestions } from "../utils/_DATA";
 import {
   receiveUnansweredQuestions,
@@ -8,9 +9,9 @@ import { setAuthedUser, signOutUser } from "./authedUser";
 
 export function handleSignIn(user) {
   return (dispatch) => {
+    dispatch(showLoading());
+    dispatch(setAuthedUser(user.id));
     return _getQuestions().then((questions) => {
-      dispatch(setAuthedUser(user.id));
-
       // filter out questions that the user hasn't answered
       const unanswered = Object.keys(questions)
         .filter((key) => !(key in user.answers))
@@ -30,6 +31,7 @@ export function handleSignIn(user) {
           });
         }, {});
       dispatch(receiveAnsweredQuestions(answered));
+      dispatch(hideLoading());
     });
   };
 }

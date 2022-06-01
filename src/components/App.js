@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("App signedIn", this.props.singedIn);
     return (
       <Fragment>
         <LoadingBar />
