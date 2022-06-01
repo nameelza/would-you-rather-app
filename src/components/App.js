@@ -11,23 +11,35 @@ import New from "./New";
 import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
 import CardPoll from "./CardPoll";
+import PrivateRoute from "./PrivateRoute";
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(getUsers());
   }
+
   render() {
+    console.log("App signedIn", this.props.singedIn);
     return (
       <Fragment>
         <LoadingBar />
         <Nav />
         <div className="container">
           <Routes>
+            <Route path="/" element={<PrivateRoute component={CardsList} />} />
             <Route path="/signIn" element={<SignIn />} />
-            <Route path="/" element={<CardsList />}  />
-            <Route path="/newQuestion" element={<New />} />
-            <Route path="/leaderBoard" element={<LeaderBoard />} />
-            <Route path="/card/:id" element={<CardPoll />} />
+            <Route
+              path="/newQuestion"
+              element={<PrivateRoute component={New} />}
+            />
+            <Route
+              path="/leaderBoard"
+              element={<PrivateRoute component={LeaderBoard} />}
+            />
+            <Route
+              path="/card/:id"
+              element={<PrivateRoute component={CardPoll} />}
+            />
             <Route
               path="*"
               element={<p>Oops, wrong URL. There's nothing here!</p>}
@@ -39,11 +51,4 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser }) {
-  return {
-    singedIn: authedUser !== null,
-    authedUser,
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);

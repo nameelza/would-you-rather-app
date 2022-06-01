@@ -17,72 +17,64 @@ function Nav({ singedIn, userName, avatar }) {
   return (
     <nav className="nav">
       <ul>
-        {singedIn ? (
-          <>
-            <li>
-              <NavLink
-                exact
-                to="/"
-                className={({ isActive }) =>
-                  "link" + (isActive ? " active-link" : "")
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                exact
-                to="/newQuestion"
-                className={({ isActive }) =>
-                  "link" + (isActive ? " active-link" : "")
-                }
-              >
-                New Question
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                exact
-                to="/leaderBoard"
-                className={({ isActive }) =>
-                  "link" + (isActive ? " active-link" : "")
-                }
-              >
-                Leader Board
-              </NavLink>
-            </li>
+        <>
+          <li>
+            <NavLink
+              exact="true"
+              to="/"
+              className={({ isActive }) =>
+                "link" + (isActive ? " active-link" : "")
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact="true"
+              to="/newQuestion"
+              className={({ isActive }) =>
+                "link" + (isActive ? " active-link" : "")
+              }
+            >
+              New Question
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              exact="true"
+              to="/leaderBoard"
+              className={({ isActive }) =>
+                "link" + (isActive ? " active-link" : "")
+              }
+            >
+              Leader Board
+            </NavLink>
+          </li>
+          {singedIn && (
             <li>
               <span>Hello, {userName}</span>
             </li>
+          )}
+          {singedIn && (
             <li>
               <img src={avatar} alt="avatar" className="nav-avatar" />
             </li>
+          )}
+          {singedIn ? (
             <li>
               <Link to="/signIn" className="link" onClick={signOut}>
                 Sign Out
               </Link>
             </li>
-          </>
-        ) : (
-          <>
+          ) : (
             <li>
-              <NavLink to="/signIn" className="link">
-                Home
-              </NavLink>
+              <Link to="/signIn" className="link">
+                Sign In
+              </Link>
             </li>
-            <li>
-              <NavLink to="/signIn" className="link">
-                New Question
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/signIn" className="link">
-                Leader Board
-              </NavLink>
-            </li>
-          </>
-        )}
+          )}
+        </>
       </ul>
     </nav>
   );

@@ -1,29 +1,14 @@
 import { connect } from "react-redux";
-import { Navigate, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { isLoggedIn } = this.props;
+const PrivateRoute = ({ component: Component, signedIn }) => {
+  console.log("PrivateRoute signedIn", signedIn);
 
-  return (
-    <Route
-      {...rest}
-      render={(props) => {
-        return isLoggedIn ? (
-          <Component {...props} />
-        ) : (
-          <Navigate
-            to={{ pathname: "/signIn", state: { from: props.location } }}
-          />
-        );
-      }}
-    />
-  );
+  return signedIn ? <Component /> : <Navigate to="/signIn" />;
 };
 
-function mapStateToProps({ authedUser }) {
-  return {
-    isLoggedIn: authedUser !== null,
-  };
+function mapStateToProps(state) {
+  return { signedIn: state.authedUser !== null };
 }
 
 export default connect(mapStateToProps)(PrivateRoute);
