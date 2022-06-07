@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import { connect } from "react-redux";
+import { useEffect } from "react";
 import { getUsers } from "../actions/users";
 import { Routes, Route } from "react-router-dom";
 import LoadingBar from "react-redux-loading";
@@ -12,42 +11,45 @@ import LeaderBoard from "./LeaderBoard";
 import Nav from "./Nav";
 import CardPoll from "./CardPoll";
 import PrivateRoute from "./PrivateRoute";
+import { useDispatch } from "react-redux";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(getUsers());
-  }
+const App = () => {
 
-  render() {
-    return (
-      <Fragment>
-        <LoadingBar />
-        <Nav />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<PrivateRoute component={CardsList} />} />
-            <Route path="/signIn" element={<SignIn />} />
-            <Route
-              path="/newQuestion"
-              element={<PrivateRoute component={New} />}
-            />
-            <Route
-              path="/leaderBoard"
-              element={<PrivateRoute component={LeaderBoard} />}
-            />
-            <Route
-              path="/card/:id"
-              element={<PrivateRoute component={CardPoll} />}
-            />
-            <Route
-              path="*"
-              element={<p>Oops, wrong URL. There's nothing here!</p>}
-            />
-          </Routes>
-        </div>
-      </Fragment>
-    );
-  }
-}
+  const dispatch = useDispatch();
 
-export default connect()(App);
+  useEffect(() => {
+    dispatch(getUsers());
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- no need for dependency
+  }, []);
+
+  return (
+    <>
+      <LoadingBar />
+      <Nav />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<PrivateRoute component={CardsList} />} />
+          <Route path="/signIn" element={<SignIn />} />
+          <Route
+            path="/newQuestion"
+            element={<PrivateRoute component={New} />}
+          />
+          <Route
+            path="/leaderBoard"
+            element={<PrivateRoute component={LeaderBoard} />}
+          />
+          <Route
+            path="/card/:id"
+            element={<PrivateRoute component={CardPoll} />}
+          />
+          <Route
+            path="*"
+            element={<p>Oops, wrong URL. There's nothing here!</p>}
+          />
+        </Routes>
+      </div>
+    </>
+  );
+};
+
+export default App;

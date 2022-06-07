@@ -253,14 +253,14 @@ li {
   justify-content: space-around;
 }
 
-.question-headers p {
+.question-headers span {
   font-size: 18px;
   font-weight: 600;
   padding: 10px;
   margin: 10px 0;
 }
 
-.question-headers p:hover {
+.question-headers span:hover {
   cursor: pointer;
   color: #419944;
 }

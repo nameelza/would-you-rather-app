@@ -1,31 +1,27 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { handleSignIn } from "../actions/shared";
 import { useNavigate } from "react-router-dom";
 
-function SignIn({ users, loading, dispatch }) {
-  const [value, setValue] = useState("");
+const SignIn = ({ users, isLoading, dispatch }) => {
+  const [selectedUser, setSelectedUser] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value === "") {
+    if (!selectedUser) {
       setError("Please select a user");
     } else {
-      dispatch(handleSignIn(users[value]));
+      dispatch(handleSignIn(users[selectedUser]));
       navigate("/");
     }
   };
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
   return (
-    <Fragment>
-      {loading ? (
+    <>
+      {isLoading ? (
         <div className="loading">
           <h3>Loading...</h3>
           <div className="loader"></div>
@@ -37,29 +33,35 @@ function SignIn({ users, loading, dispatch }) {
             Please sign in to continue
           </p>
           <form onSubmit={handleSubmit}>
-            <select value={value} onChange={handleChange} className="input">
+            <select
+              value={selectedUser}
+              onChange={(e) => setSelectedUser(e.target.value)}
+              className="input"
+            >
               <option value="" disabled>
                 Select User
               </option>
-              {Object.keys(users).map((user) => (
-                <option key={user} value={user}>
-                  {users[user].name}
+              {Object.entries(users).map(([key, user]) => (
+                <option key={key} value={key}>
+                  {user.name}
                 </option>
               ))}
             </select>
             {error && <p className="error">{error}</p>}
-            <button type="submit">Sign In</button>
+            <button disabled={!selectedUser} type="submit">
+              Sign In
+            </button>
           </form>
         </div>
       )}
-    </Fragment>
+    </>
   );
-}
+};
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, loadingBar }) {
   return {
     users,
-    loading: Object.keys(users).length === 0,
+    isLoading: loadingBar.default === 1,
   };
 }
 
