@@ -4,12 +4,15 @@ import { NavLink, Link } from "react-router-dom";
 import { handleSignOut } from "../actions/shared";
 import { useDispatch } from "react-redux";
 
-const Nav = ({ singedIn, userName, avatar }) => {
+const Nav = ({ isSingedIn, userName, avatar }) => {
   const dispatch = useDispatch();
 
-  const signOut = (e) => {
+  const onSignOut = () => {
     dispatch(handleSignOut());
   };
+
+  const linkClassName = ({ isActive }) =>
+    "link" + (isActive ? " active-link" : "");
 
   return (
     <nav className="nav">
@@ -18,9 +21,7 @@ const Nav = ({ singedIn, userName, avatar }) => {
           <NavLink
             exact="true"
             to="/"
-            className={({ isActive }) =>
-              "link" + (isActive ? " active-link" : "")
-            }
+            className={({ isActive }) => linkClassName({ isActive })}
           >
             Home
           </NavLink>
@@ -29,9 +30,7 @@ const Nav = ({ singedIn, userName, avatar }) => {
           <NavLink
             exact="true"
             to="/newQuestion"
-            className={({ isActive }) =>
-              "link" + (isActive ? " active-link" : "")
-            }
+            className={({ isActive }) => linkClassName({ isActive })}
           >
             New Question
           </NavLink>
@@ -40,14 +39,12 @@ const Nav = ({ singedIn, userName, avatar }) => {
           <NavLink
             exact="true"
             to="/leaderBoard"
-            className={({ isActive }) =>
-              "link" + (isActive ? " active-link" : "")
-            }
+            className={({ isActive }) => linkClassName({ isActive })}
           >
             Leader Board
           </NavLink>
         </li>
-        {singedIn && (
+        {isSingedIn && (
           <>
             <li>
               <span>Hello, {userName}</span>
@@ -56,7 +53,7 @@ const Nav = ({ singedIn, userName, avatar }) => {
               <img src={avatar} alt="user avatar" className="nav-avatar" />
             </li>
             <li>
-              <Link to="/signIn" className="link" onClick={signOut}>
+              <Link to="/signIn" className="link" onClick={onSignOut}>
                 Sign Out
               </Link>
             </li>
@@ -69,7 +66,7 @@ const Nav = ({ singedIn, userName, avatar }) => {
 
 function mapStateToProps({ authedUser, users }) {
   return {
-    singedIn: authedUser !== null,
+    isSingedIn: authedUser !== null,
     userName: authedUser ? users[authedUser].name : "",
     avatar: authedUser ? users[authedUser].avatarURL : "",
   };

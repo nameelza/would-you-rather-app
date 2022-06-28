@@ -2,8 +2,6 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ component: Component, signedIn }) => {
-  console.log("PrivateRoute signedIn", signedIn);
-
   return signedIn ? <Component /> : <Navigate to="/signIn" />;
 };
 

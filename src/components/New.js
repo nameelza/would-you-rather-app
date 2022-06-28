@@ -7,7 +7,7 @@ class New extends Component {
   state = {
     optionOne: "",
     optionTwo: "",
-    redirectToHome: false,
+    isRedirectToHome: false,
   };
 
   handleChange = (e) => {
@@ -23,12 +23,12 @@ class New extends Component {
     if (optionOne !== "" && optionTwo !== "") {
       dispatch(handleAddQuestion({ optionOne, optionTwo }));
       this.setState({
-        redirectToHome: true,
+        isRedirectToHome: true,
       });
     }
   };
   render() {
-    if (this.state.redirectToHome) {
+    if (this.state.isRedirectToHome) {
       return <Navigate to="/" />;
     }
     const { optionOne, optionTwo } = this.state;
