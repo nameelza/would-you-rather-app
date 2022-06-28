@@ -1,28 +1,31 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { handleSaveAnswer } from "../actions/questions";
 
 function CardPoll() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
   const { isAnswered, question, avatar } = location.state;
   const { author, optionOne, optionTwo } = question;
 
   const authedUser = useSelector((state) => state.authedUser);
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
 
   const [answered, setIsAnswered] = useState(isAnswered);
+
   const [optionOneAnswer, setAnswerOne] = useState("");
   const [optionTwoAnswer, setAnswerTwo] = useState("");
 
   const [optionOneVotes, setOptionOneVotes] = useState(optionOne.votes.length);
   const [optionTwoVotes, setOptionTwoVotes] = useState(optionTwo.votes.length);
+
   const votesCount = optionOneVotes + optionTwoVotes;
+
   const optionOnePercentage = ((optionOneVotes / votesCount) * 100).toFixed(0);
   const optionTwoPercentage = ((optionTwoVotes / votesCount) * 100).toFixed(0);
-
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,7 +45,7 @@ function CardPoll() {
   };
 
   return (
-    <Fragment>
+    <>
       {answered ? (
         <div className="card">
           <div className="card-header">
@@ -139,7 +142,7 @@ function CardPoll() {
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 }
 
